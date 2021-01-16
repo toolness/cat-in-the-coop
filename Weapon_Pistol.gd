@@ -46,6 +46,8 @@ func unequip_weapon():
 		# believe it.
 		if player_node.animation_manager.current_state != "Pistol_unequip":
 			player_node.animation_manager.set_animation("Pistol_unequip")
+		else:
+			print("Uh wow, the impossible happened?")
 
 	if player_node.animation_manager.current_state == "Idle_unarmed":
 		is_weapon_enabled = false
