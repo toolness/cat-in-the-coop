@@ -27,23 +27,8 @@ func fire_weapon():
 
 
 func equip_weapon():
-	if player_node.animation_manager.current_state == IDLE_ANIM_NAME:
-		is_weapon_enabled = true
-		return true
-
-	if player_node.animation_manager.current_state == "Idle_unarmed":
-		player_node.animation_manager.set_animation("Rifle_equip")
-
-	return false
+	return player_node.equip_weapon(self, "Rifle_equip")
 
 
 func unequip_weapon():
-	if player_node.animation_manager.current_state == IDLE_ANIM_NAME:
-		if player_node.animation_manager.current_state != "Rifle_unequip":
-			player_node.animation_manager.set_animation("Rifle_unequip")
-
-	if player_node.animation_manager.current_state == "Idle_unarmed":
-		is_weapon_enabled = false
-		return true
-
-	return false
+	return player_node.unequip_weapon(self, "Rifle_unequip")

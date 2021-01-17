@@ -245,3 +245,31 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+
+func equip_weapon(weapon, anim_name):
+	if animation_manager.current_state == weapon.IDLE_ANIM_NAME:
+		weapon.is_weapon_enabled = true
+		return true
+
+	if animation_manager.current_state == "Idle_unarmed":
+		animation_manager.set_animation(anim_name)
+
+	return false
+
+
+func unequip_weapon(weapon, anim_name):
+	if animation_manager.current_state == weapon.IDLE_ANIM_NAME:
+		# Not sure why this next line exists, but it's in the tutorial code... Oh weird,
+		# the tutorial code has an explanation for this, although I'm not sure I
+		# believe it.
+		if animation_manager.current_state != anim_name:
+			animation_manager.set_animation(anim_name)
+		else:
+			print("Uh wow, the impossible happened?")
+
+	if animation_manager.current_state == "Idle_unarmed":
+		weapon.is_weapon_enabled = false
+		return true
+
+	return false
