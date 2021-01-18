@@ -23,14 +23,10 @@ var MOUSE_SENSITIVITY = 0.05
 var animation_manager
 
 var current_weapon_name = "UNARMED"
-var weapons = {
-	"UNARMED": null,
-	"KNIFE": null,
-	"PISTOL": null,
-	"RIFLE": null,
-}
-const WEAPON_NUMBER_TO_NAME = {0:"UNARMED", 1:"KNIFE", 2:"PISTOL", 3:"RIFLE"}
-const WEAPON_NAME_TO_NUMBER = {"UNARMED":0, "KNIFE":1, "PISTOL":2, "RIFLE":3}
+var WEAPON_LIST = ["UNARMED", "KNIFE", "PISTOL", "RIFLE"]
+var weapons = {}
+var WEAPON_NUMBER_TO_NAME = {}
+var WEAPON_NAME_TO_NUMBER = {}
 var changing_weapon = false
 var changing_weapon_name = "UNARMED"
 
@@ -47,6 +43,12 @@ func _ready():
 
 	animation_manager = $Rotation_Helper/Model/Animation_Player
 	animation_manager.callback_function = funcref(self, "fire_bullet")
+
+	for i in range(WEAPON_LIST.size()):
+		var weapon_name = WEAPON_LIST[i]
+		weapons[weapon_name] = null
+		WEAPON_NUMBER_TO_NAME[i] = weapon_name
+		WEAPON_NAME_TO_NUMBER[weapon_name] = i
 
 	weapons["KNIFE"] = $Rotation_Helper/Gun_Fire_Points/Knife_Point
 	weapons["PISTOL"] = $Rotation_Helper/Gun_Fire_Points/Pistol_Point
