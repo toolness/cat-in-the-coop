@@ -16,3 +16,5 @@ func fire_weapon():
 			pass
 		elif body.has_method("bullet_hit"):
 			body.bullet_hit(DAMAGE, ray.global_transform)
+
+	ammo_in_weapon -= 1

@@ -4,6 +4,7 @@ class_name Weapon
 
 export var DAMAGE = 0
 export var BASE_ANIM_NAME = ""
+export var AMMO_IN_MAG = 1
 
 var IDLE_ANIM_NAME = ""
 var FIRE_ANIM_NAME = ""
@@ -14,6 +15,8 @@ var is_weapon_enabled = false
 
 var player_node = null
 
+var ammo_in_weapon = 1
+var spare_ammo = 1
 
 func _ready():
 	IDLE_ANIM_NAME = BASE_ANIM_NAME + "_idle"
@@ -22,6 +25,8 @@ func _ready():
 	UNEQUIP_ANIM_NAME = BASE_ANIM_NAME + "_unequip"
 	assert(BASE_ANIM_NAME != "", name + " should have BASE_ANIM_NAME set.")
 	assert(DAMAGE > 0, name + " should have DAMAGE set.")
+	ammo_in_weapon = AMMO_IN_MAG
+	spare_ammo = ammo_in_weapon * 2
 
 
 func equip_weapon():
