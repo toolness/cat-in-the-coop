@@ -4127,6 +4127,8 @@ script = ExtResource( 12 )
 DAMAGE = 4
 BASE_ANIM_NAME = "Rifle"
 AMMO_IN_MAG = 50
+CAN_RELOAD = true
+CAN_REFILL = true
 
 [node name="Ray_Cast" type="RayCast" parent="Rotation_Helper/Gun_Fire_Points/Rifle_Point"]
 cast_to = Vector3( 0, 0, 80 )
@@ -4152,6 +4154,8 @@ script = ExtResource( 11 )
 DAMAGE = 15
 BASE_ANIM_NAME = "Pistol"
 AMMO_IN_MAG = 10
+CAN_RELOAD = true
+CAN_REFILL = true
 
 [node name="Gun_Aim_Point" type="Spatial" parent="Rotation_Helper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.307539, 20.0487 )
