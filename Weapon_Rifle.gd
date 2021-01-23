@@ -18,3 +18,5 @@ func fire_weapon():
 			body.bullet_hit(DAMAGE, ray.global_transform)
 
 	ammo_in_weapon -= 1
+
+	player_node.play_sound("quicksound", global_transform)

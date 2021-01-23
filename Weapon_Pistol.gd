@@ -19,3 +19,5 @@ func fire_weapon():
 	clone.BULLET_DAMAGE = DAMAGE
 
 	ammo_in_weapon -= 1
+
+	player_node.play_sound("zap", global_transform)

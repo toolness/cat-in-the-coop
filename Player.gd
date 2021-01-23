@@ -123,6 +123,7 @@ func process_input(_delta):
 
 	if is_on_floor():
 		if Input.is_action_just_pressed("movement_jump"):
+			play_sound("jump", global_transform)
 			vel.y = JUMP_SPEED
 
 	# ----------------------------
@@ -287,3 +288,12 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+
+var simple_audio_player = preload("res://Simple_Audio_Player.tscn")
+
+
+func play_sound(name, position = null):
+	var player = simple_audio_player.instance()
+	get_tree().root.add_child(player)
+	player.play_sound(name, position)
