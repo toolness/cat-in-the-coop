@@ -31,6 +31,9 @@ var changing_weapon = false
 var changing_weapon_name = "UNARMED"
 var reloading_weapon = false
 
+var JOYPAD_SENSITIVITY = 2
+const JOYPAD_DEADZONE = 0.15
+
 var health = 100
 var UI_status_label
 
@@ -95,6 +98,20 @@ func process_input(_delta):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("movement_right"):
 		input_movement_vector.x += 1
+
+	if Input.get_connected_joypads().size() > 0:
+		var joypad_vec = Vector2(0, 0)
+
+		if OS.get_name() == "Windows":
+			joypad_vec = Vector2(Input.get_joy_axis(0, 0), -Input.get_joy_axis(0, 1))
+		
+		if joypad_vec.length() < JOYPAD_DEADZONE:
+			joypad_vec = Vector2(0, 0)
+		else:
+			# https://web.archive.org/web/20191208161810/http://www.third-helix.com/2013/04/12/doing-thumbstick-dead-zones-right.html
+			joypad_vec = joypad_vec.normalized() * ((joypad_vec.length() - JOYPAD_DEADZONE) / (1 - JOYPAD_DEADZONE))
+
+		input_movement_vector += joypad_vec
 
 	input_movement_vector = input_movement_vector.normalized()
 
