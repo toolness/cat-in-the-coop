@@ -32,7 +32,7 @@ var changing_weapon_name = "UNARMED"
 var reloading_weapon = false
 
 var JOYPAD_SENSITIVITY = 2
-const JOYPAD_DEADZONE = 0.15
+var joypad
 
 var health = 100
 var UI_status_label
@@ -42,6 +42,11 @@ func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	flashlight = $Rotation_Helper/Flashlight
+
+	if OS.get_name() == "Windows":
+		joypad = WindowsJoypad.new()
+	else:
+		joypad = Joypad.new()
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -76,6 +81,7 @@ func _ready():
 func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
+	process_view_input(delta)
 	process_changing_weapons(delta)
 	process_reloading(delta)
 	process_UI(delta)
@@ -99,19 +105,7 @@ func process_input(_delta):
 	if Input.is_action_pressed("movement_right"):
 		input_movement_vector.x += 1
 
-	if Input.get_connected_joypads().size() > 0:
-		var joypad_vec = Vector2(0, 0)
-
-		if OS.get_name() == "Windows":
-			joypad_vec = Vector2(Input.get_joy_axis(0, 0), -Input.get_joy_axis(0, 1))
-		
-		if joypad_vec.length() < JOYPAD_DEADZONE:
-			joypad_vec = Vector2(0, 0)
-		else:
-			# https://web.archive.org/web/20191208161810/http://www.third-helix.com/2013/04/12/doing-thumbstick-dead-zones-right.html
-			joypad_vec = joypad_vec.normalized() * ((joypad_vec.length() - JOYPAD_DEADZONE) / (1 - JOYPAD_DEADZONE))
-
-		input_movement_vector += joypad_vec
+	input_movement_vector += joypad.get_axis(joypad.MOVEMENT_AXIS)
 
 	input_movement_vector = input_movement_vector.normalized()
 
@@ -243,6 +237,54 @@ func process_movement(delta):
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 
 
+class Joypad:
+	const MOVEMENT_AXIS = 0
+	const ROTATION_AXIS = 1
+	const DEADZONE = 0.15
+
+	func _get_axis(_axis: int) -> Vector2:
+		return Vector2()
+
+	func get_axis(axis: int) -> Vector2:
+		var vec = Vector2()
+
+		if Input.get_connected_joypads().size() > 0:
+			vec = _get_axis(axis)
+
+			if vec.length() < DEADZONE:
+				vec = Vector2(0, 0)
+			else:
+				vec = vec.normalized() * ((vec.length() - DEADZONE) / (1 - DEADZONE))
+
+		return vec
+
+
+class WindowsJoypad:
+	extends Joypad
+
+	func _get_axis(axis: int) -> Vector2:
+		if axis == MOVEMENT_AXIS:
+			return Vector2(Input.get_joy_axis(0, 0), -Input.get_joy_axis(0, 1))
+		assert(axis == ROTATION_AXIS)
+		return Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3))
+
+
+func process_view_input(_delta):
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		return
+	
+	# NOTE: The original tutorial said something about not being able to
+	# do mouse stuff here until some bugs are fixed, which I guess is why
+	# we process mouselook logic elsewhere.
+
+	var joypad_vec = joypad.get_axis(joypad.ROTATION_AXIS)
+
+	rotate_camera(
+		joypad_vec.y * JOYPAD_SENSITIVITY,
+		joypad_vec.x * JOYPAD_SENSITIVITY * -1
+	)
+
+
 func process_changing_weapons(_delta):
 	if changing_weapon == true:
 		var weapon_unequipped = false
@@ -297,14 +339,21 @@ func fire_bullet():
 	weapons[current_weapon_name].fire_weapon()
 
 
+func rotate_camera(x_axis_degrees, y_axis_degrees):
+	rotation_helper.rotate_x(deg2rad(x_axis_degrees))
+	self.rotate_y(deg2rad(y_axis_degrees))
+
+	var camera_rot = rotation_helper.rotation_degrees
+	camera_rot.x = clamp(camera_rot.x, -70, 70)
+	rotation_helper.rotation_degrees = camera_rot
+
+
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation_helper.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
-		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
-
-		var camera_rot = rotation_helper.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -70, 70)
-		rotation_helper.rotation_degrees = camera_rot
+		rotate_camera(
+			event.relative.y * MOUSE_SENSITIVITY,
+			event.relative.x * MOUSE_SENSITIVITY * -1
+		)
 
 
 var simple_audio_player = preload("res://Simple_Audio_Player.tscn")
