@@ -20,6 +20,9 @@ var flashlight
 
 var MOUSE_SENSITIVITY = 0.05
 
+var was_mousewheel_just_pushed_down = false
+var was_mousewheel_just_pushed_up = false
+
 var animation_manager
 
 var current_weapon_name = "UNARMED"
@@ -162,11 +165,14 @@ func process_input(_delta):
 	if Input.is_key_pressed(KEY_4):
 		weapon_change_number = 3
 
-	if Input.is_action_just_pressed("shift_weapon_positive"):
+	if Input.is_action_just_pressed("shift_weapon_positive") or was_mousewheel_just_pushed_up:
 		weapon_change_number += 1
-	if Input.is_action_just_pressed("shift_weapon_negative"):
+	if Input.is_action_just_pressed("shift_weapon_negative") or was_mousewheel_just_pushed_down:
 		weapon_change_number -= 1
-	
+
+	was_mousewheel_just_pushed_down = false
+	was_mousewheel_just_pushed_up = false
+
 	weapon_change_number = clamp(weapon_change_number, 0, WEAPON_NUMBER_TO_NAME.size() - 1)
 
 	if changing_weapon == false and reloading_weapon == false:
@@ -349,11 +355,21 @@ func rotate_camera(x_axis_degrees, y_axis_degrees):
 
 
 func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		return
+
+	if event is InputEventMouseMotion:
 		rotate_camera(
 			event.relative.y * MOUSE_SENSITIVITY,
 			event.relative.x * MOUSE_SENSITIVITY * -1
 		)
+	elif event is InputEventMouseButton:
+		# Note that this deviates from the original tutorial. The original tutorial
+		# is very weird.
+		if event.button_index == BUTTON_WHEEL_UP:
+			was_mousewheel_just_pushed_up = true
+		elif event.button_index == BUTTON_WHEEL_DOWN:
+			was_mousewheel_just_pushed_down = true
 
 
 var simple_audio_player = preload("res://Simple_Audio_Player.tscn")
