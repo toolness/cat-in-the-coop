@@ -38,6 +38,7 @@ func put_down_food(player):
 		var cat = cat_scene.instance()
 		cat.global_transform.origin = pos
 		get_tree().root.add_child(cat)
+		cat.food = catfood
 	else:
 		player.play_sound("zap")
 

@@ -2,7 +2,9 @@ extends Spatial
 
 export(NodePath) var spawn_points
 export(float) var time_between_teleports
+var MOVE_SPEED = 0.1
 var anim_player
+var food
 
 var time_elapsed = 0
 var rng
@@ -23,6 +25,9 @@ func loop_animation(anim_name):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time_elapsed += delta
+	if food:
+		look_at(food.global_transform.origin, transform.basis.y)
+		global_transform.origin = global_transform.origin.move_toward(food.global_transform.origin, MOVE_SPEED)
 	# if spawn_points and time_elapsed >= time_between_teleports:
 	# 	time_elapsed = 0
 	# 	var spawn_points_node = get_node(spawn_points)
