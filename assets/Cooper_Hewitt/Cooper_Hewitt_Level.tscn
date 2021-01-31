@@ -30,9 +30,16 @@ environment = SubResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Cat_Objective" parent="Objective_Manager" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -76.9645, 0 )
 
-[node name="Picture" type="Node" parent="Objective_Manager/Cat_Objective"]
+[node name="Picture" type="Viewport" parent="Objective_Manager/Cat_Objective"]
+size = Vector2( 310, 310 )
+handle_input_locally = false
+render_direct_to_screen = true
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Camera" type="Camera" parent="Objective_Manager/Cat_Objective/Picture"]
+transform = Transform( -0.359151, -0.776937, 0.517088, 0, 0.554055, 0.83248, -0.93328, 0.298986, -0.198989, 51.9678, 29.7837, -14.2331 )
 
 [node name="Cat_Spawn" type="Spatial" parent="Objective_Manager/Cat_Objective"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4094, 1.58063, 2.08199 )
