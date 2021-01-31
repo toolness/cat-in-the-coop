@@ -4058,6 +4058,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.405, 0 )
 [node name="Armature" type="Spatial" parent="Rotation_Helper/Model"]
 
 [node name="Skeleton" type="Skeleton" parent="Rotation_Helper/Model/Armature"]
+visible = false
 bones/0/name = "Root"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 9.99256, 0 )
@@ -4230,6 +4231,7 @@ bones/33/enabled = true
 bones/33/bound_children = [  ]
 
 [node name="GodotBattleBot" type="MeshInstance" parent="Rotation_Helper/Model/Armature/Skeleton"]
+transform = Transform( -0.230873, 0.507629, -0.830067, 0, 0.853115, 0.521724, 0.972984, 0.120452, -0.196961, 0, 0, 0 )
 cast_shadow = 0
 mesh = SubResource( 6 )
 material/0 = ExtResource( 1 )
@@ -4358,7 +4360,7 @@ position = Vector2( 190, 143 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 54 )
 animation = "New Anim"
-frame = 19
+frame = 8
 speed_scale = 6.0
 playing = true
 centered = false

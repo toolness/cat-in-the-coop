@@ -7,6 +7,7 @@ var sounds = {
 	"jump": preload("res://assets/jump.wav"),
 	"quicksound": preload("res://assets/quicksound.wav"),
 	"zap": preload("res://assets/zap.wav"),
+	"song": preload("res://assets/song.wav")
 }
 
 
@@ -22,6 +23,8 @@ func play_sound(name, position = null):
 		global_transform = position
 	stream_player.play()
 
-
+func stop_sound():
+	stream_player.stop()
+	
 func handle_finished():
 	queue_free()

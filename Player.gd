@@ -44,6 +44,8 @@ var picture_texture
 
 var objective_manager: ObjectiveManager
 
+var song_player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -141,8 +143,13 @@ func process_input(_delta):
 		objective_manager.put_down_food(self)
 
 	if Input.is_action_just_pressed("reload"):
-		$HUD.visible = !$HUD.visible
+		var visibility = !$HUD.visible
+		$HUD.visible = visibility
 
+		if (visibility):
+			song_player = play_sound("song")
+		else:
+			song_player.stop_sound()
 
 func process_movement(delta):
 	dir.y = 0
@@ -248,3 +255,5 @@ func play_sound(name, position = null):
 	var player = simple_audio_player.instance()
 	get_tree().root.add_child(player)
 	player.play_sound(name, position)
+
+	return player
