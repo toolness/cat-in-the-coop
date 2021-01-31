@@ -19,12 +19,14 @@ func _ready():
 	collision_area.connect("body_exited", self, "area_exited")
 
 
-func area_entered(_node: Node):
-	objective_manager.set_inside_objective(true)
+func area_entered(node: Node):
+	if node.name == "Player":
+		objective_manager.set_inside_objective(true)
 
 
-func area_exited(_node: Node):
-	objective_manager.set_inside_objective(false)
+func area_exited(node: Node):
+	if node.name == "Player":
+		objective_manager.set_inside_objective(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
