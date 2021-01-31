@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/Cooper_Hewitt_gltf/cooper-hewitt.gltf" type="PackedScene" id=2]
+[ext_resource path="res://assets/Cooper_Hewitt/gltf/cooper-hewitt-take-two.gltf" type="PackedScene" id=2]
 [ext_resource path="res://Objective_Manager.gd" type="Script" id=3]
 [ext_resource path="res://Cat_Objective.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Cooper_Hewitt/Cooper_Hewitt_Level.gd" type="Script" id=6]
@@ -18,8 +18,6 @@ radius = 6.99635
 [node name="Cooper_Hewitt_Level" type="Spatial"]
 script = ExtResource( 6 )
 
-[node name="cooper-hewitt" parent="." instance=ExtResource( 2 )]
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9357, -71.2172, 0 )
 
@@ -30,6 +28,7 @@ environment = SubResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Cat_Objective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -82.6492, 0 )
 
 [node name="Picture" type="Viewport" parent="Objective_Manager/Cat_Objective"]
 size = Vector2( 310, 310 )
@@ -39,10 +38,10 @@ render_target_update_mode = 3
 gui_disable_input = true
 
 [node name="Camera" type="Camera" parent="Objective_Manager/Cat_Objective/Picture"]
-transform = Transform( -0.359151, -0.776937, 0.517088, 0, 0.554055, 0.83248, -0.93328, 0.298986, -0.198989, 51.9678, 29.7837, -14.2331 )
+transform = Transform( -0.359151, -0.776937, 0.517088, 0, 0.554055, 0.83248, -0.93328, 0.298986, -0.198989, 51.9678, -67.333, -14.2331 )
 
 [node name="Cat_Spawn" type="Spatial" parent="Objective_Manager/Cat_Objective"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4094, 1.58063, 2.08199 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.4767, -2.50065, 2.08199 )
 
 [node name="Collision_Area" type="Area" parent="Objective_Manager/Cat_Objective"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8502, 3.33688, 0 )
@@ -50,3 +49,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8502, 3.33688, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Objective_Manager/Cat_Objective/Collision_Area"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="cooper-hewitt-take-two" parent="." instance=ExtResource( 2 )]
