@@ -1,5 +1,7 @@
 extends KinematicBody
 
+class_name Player
+
 const GRAVITY = -24.8
 var vel = Vector3()
 const MAX_SPEED = 20
@@ -38,7 +40,7 @@ var JOYPAD_SENSITIVITY = 2
 var joypad
 
 var health = 100
-var UI_status_label
+var picture_texture
 
 var objective_manager: ObjectiveManager
 
@@ -47,6 +49,8 @@ func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	flashlight = $Rotation_Helper/Flashlight
+
+	camera.make_current()
 
 	if OS.get_name() == "Windows":
 		joypad = WindowsJoypad.new()
@@ -58,8 +62,13 @@ func _ready():
 	animation_manager = $Rotation_Helper/Model/Animation_Player
 	animation_manager.callback_function = funcref(self, "fire_bullet")
 
-	UI_status_label = $HUD/Panel/Gun_label
+	picture_texture = $HUD/Panel/TextureRect
 
+
+func set_objective_manager(new_objective_manager):
+	objective_manager = new_objective_manager
+	yield(VisualServer, "frame_post_draw")
+	picture_texture.texture = objective_manager.get_photo()
 
 func _physics_process(delta):
 	process_input(delta)
@@ -130,6 +139,9 @@ func process_input(_delta):
 
 	if Input.is_action_just_pressed("fire"):
 		objective_manager.put_down_food(self)
+
+	if Input.is_action_just_pressed("reload"):
+		$HUD.visible = !$HUD.visible
 
 
 func process_movement(delta):

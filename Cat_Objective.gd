@@ -2,9 +2,9 @@ extends Spatial
 
 class_name CatObjective
 
-var collision_area
-var picture
-var cat_spawn
+var collision_area: Area
+var picture: Viewport
+var cat_spawn: Spatial
 var objective_manager
 
 # Declare member variables here. Examples:
@@ -15,6 +15,7 @@ var objective_manager
 func _ready():
 	collision_area = $Collision_Area
 	cat_spawn = $Cat_Spawn
+	picture = $Picture
 	collision_area.connect("body_entered", self, "area_entered")
 	collision_area.connect("body_exited", self, "area_exited")
 

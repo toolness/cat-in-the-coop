@@ -5,7 +5,7 @@ class_name ObjectiveManager
 const CATFOOD_DISTANCE_FROM_PLAYER = 10
 
 var current_objective
-var inside_objective
+var inside_objective: bool
 var cat_scene = preload("res://Cat.tscn")
 var catfood_scene = preload("res://Cat_Food.tscn")
 
@@ -42,7 +42,9 @@ func put_down_food(player):
 	else:
 		player.play_sound("zap")
 
-
+func get_photo():
+	return current_objective.picture.get_texture()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

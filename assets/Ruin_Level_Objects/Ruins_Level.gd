@@ -8,7 +8,7 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player.objective_manager = $Objective_Manager
+	$Player.set_objective_manager($Objective_Manager)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
