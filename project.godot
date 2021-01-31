@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "ObjectiveManager",
+"language": "GDScript",
+"path": "res://Objective_Manager.gd"
+}, {
 "base": "Spatial",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://Weapon.gd"
 } ]
 _global_script_class_icons={
+"ObjectiveManager": "",
 "Weapon": ""
 }
 
