@@ -1,4 +1,6 @@
-This is my repository for working through the [Godot FPS tutorial](https://docs.godotengine.org/en/stable/tutorials/3d/fps_tutorial/index.html).
+This was originally Atul's repository for working through the [Godot FPS tutorial](https://docs.godotengine.org/en/stable/tutorials/3d/fps_tutorial/index.html), but then Atul and Erik repurposed it for working on a Global Game Jam 2020 game.
+
+Having zero experience with Godot, this thing is kind of a mess, but we learned a lot!  Yay.
 
 ## Credits
 
