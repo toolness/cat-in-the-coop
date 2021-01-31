@@ -129,10 +129,8 @@ func process_input(_delta):
 
 
 	if Input.is_action_just_pressed("fire"):
-		if objective_manager.inside_objective:
-			play_sound("jump")
-		else:
-			play_sound("zap")
+		objective_manager.put_down_food(self)
+
 
 func process_movement(delta):
 	dir.y = 0

@@ -14,6 +14,13 @@ func set_inside_objective(inside: bool):
 	inside_objective = inside
 
 
+func put_down_food(player):
+	if inside_objective:
+		player.play_sound("jump")
+	else:
+		player.play_sound("zap")
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
