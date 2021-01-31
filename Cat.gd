@@ -3,6 +3,8 @@ extends Spatial
 export(NodePath) var spawn_points
 export(float) var time_between_teleports
 var MOVE_SPEED = 0.1
+var AT_FOOD_DISTANCE = 3
+var AT_FOOD_DISTANCE_SQUARED = AT_FOOD_DISTANCE * AT_FOOD_DISTANCE
 var anim_player
 var food
 
@@ -22,17 +24,17 @@ func loop_animation(anim_name):
 	anim_player.play(anim_name)
 
 
+func set_food(new_food):
+	food = new_food
+	look_at(food.global_transform.origin, transform.basis.y)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time_elapsed += delta
 	if food:
-		look_at(food.global_transform.origin, transform.basis.y)
-		global_transform.origin = global_transform.origin.move_toward(food.global_transform.origin, MOVE_SPEED)
-	# if spawn_points and time_elapsed >= time_between_teleports:
-	# 	time_elapsed = 0
-	# 	var spawn_points_node = get_node(spawn_points)
-	# 	var num_children = spawn_points_node.get_child_count()
-	# 	var random_child = rng.randi_range(0, num_children - 1)
-	# 	var child = spawn_points_node.get_child(random_child)
-	# 	global_transform.origin = child.global_transform.origin
-	# 	print("Teleported!")
+		var cat_pos = global_transform.origin
+		var food_pos = food.global_transform.origin
+		var distance_to_food = (cat_pos - food_pos).length_squared()
+		if distance_to_food > AT_FOOD_DISTANCE_SQUARED:
+			global_transform.origin = cat_pos.move_toward(food_pos, MOVE_SPEED)
