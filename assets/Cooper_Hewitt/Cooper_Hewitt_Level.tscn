@@ -56,7 +56,7 @@ transform = Transform( -0.359151, -0.776937, 0.517088, 0, 0.554055, 0.83248, -0.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.4767, -2.50065, 2.08199 )
 
 [node name="Collision_Area" type="Area" parent="Objective_Manager/Cat_Objective"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8502, 3.33688, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8502, -4.2684, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Objective_Manager/Cat_Objective/Collision_Area"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
