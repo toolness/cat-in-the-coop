@@ -21,12 +21,12 @@ func _ready():
 
 
 func area_entered(node: Node):
-	if node.name == "Player":
+	if node.name == "Player" and visible:
 		objective_manager.set_inside_objective(true)
 
 
 func area_exited(node: Node):
-	if node.name == "Player":
+	if node.name == "Player" and visible:
 		objective_manager.set_inside_objective(false)
 
 

@@ -62,6 +62,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8502, -4.2684, 0 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 3 )
 
+[node name="Cat_Objective2" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1195, -82.6492, 115.815 )
+
+[node name="Picture" type="Viewport" parent="Objective_Manager/Cat_Objective2"]
+size = Vector2( 310, 310 )
+handle_input_locally = false
+render_direct_to_screen = true
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Camera" type="Camera" parent="Objective_Manager/Cat_Objective2/Picture"]
+transform = Transform( -0.696375, 0.409118, -0.589648, 0, 0.821604, 0.570058, 0.717678, 0.396974, -0.572145, -1.13968, -63.2916, 108.711 )
+
+[node name="Cat_Spawn" type="Spatial" parent="Objective_Manager/Cat_Objective2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.983, -2.79198, 26.5267 )
+
+[node name="Collision_Area" type="Area" parent="Objective_Manager/Cat_Objective2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8502, -4.2684, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objective_Manager/Cat_Objective2/Collision_Area"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+shape = SubResource( 3 )
+
 [node name="cooper-hewitt-take-two" parent="." instance=ExtResource( 2 )]
 
 [node name="OmniLight" type="OmniLight" parent="."]

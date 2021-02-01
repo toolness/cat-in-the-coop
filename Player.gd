@@ -69,8 +69,8 @@ func _ready():
 
 func set_objective_manager(new_objective_manager):
 	objective_manager = new_objective_manager
-	yield(VisualServer, "frame_post_draw")
-	picture_texture.texture = objective_manager.get_photo()
+	objective_manager.picture_texture = picture_texture
+
 
 func _physics_process(delta):
 	process_input(delta)
@@ -148,7 +148,7 @@ func process_input(_delta):
 
 		if (visibility):
 			song_player = play_sound("song")
-		else:
+		elif song_player:
 			song_player.stop_sound()
 
 func process_movement(delta):
