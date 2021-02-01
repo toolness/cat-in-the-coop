@@ -4263,7 +4263,7 @@ script = ExtResource( 10 )
 transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, -0.307539, -0.0646362 )
 current = true
 fov = 90.0
-far = 180.0
+far = 500.0
 
 [node name="Gun_Fire_Points" type="Spatial" parent="Rotation_Helper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.3914, 0 )
@@ -4361,7 +4361,7 @@ position = Vector2( 190, 143 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 54 )
 animation = "New Anim"
-frame = 21
+frame = 9
 speed_scale = 6.0
 playing = true
 centered = false
