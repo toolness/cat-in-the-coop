@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Cooper_Hewitt/gltf/cooper-hewitt-take-two.gltf" type="PackedScene" id=2]
 [ext_resource path="res://Objective_Manager.gd" type="Script" id=3]
+[ext_resource path="res://assets/Cooper_Hewitt/LightFlicker.gd" type="Script" id=4]
 [ext_resource path="res://Cat_Objective.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Cooper_Hewitt/Cooper_Hewitt_Level.gd" type="Script" id=6]
 
@@ -15,7 +16,7 @@ background_sky = SubResource( 1 )
 [sub_resource type="SphereShape" id=3]
 radius = 6.99635
 
-[sub_resource type="GIProbeData" id=5]
+[sub_resource type="GIProbeData" id=4]
 bounds = AABB( -133.466, -69.6471, -370.986, 266.933, 139.294, 741.972 )
 cell_size = 5.79665
 to_cell_xform = Transform( 0.172513, 0, 0, 0, 0.172513, 0, 0, 0, 0.172513, 23.0247, 12.015, 64 )
@@ -83,9 +84,10 @@ light_energy = 0.25
 light_indirect_energy = 20.0
 shadow_enabled = true
 omni_range = 89.2
+script = ExtResource( 4 )
 
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3078, -38.5016, 0 )
 extents = Vector3( 133.466, 69.6471, 370.986 )
 interior = true
-data = SubResource( 5 )
+data = SubResource( 4 )
