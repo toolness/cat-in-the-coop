@@ -21,8 +21,8 @@ func _ready():
 			objectives.append(child)
 			child.visible = false
 	# TODO: We should be picking a random objective to be our
-	# current one, not using the last one we iterate over.
-	set_current_objective(objectives.size() - 1)
+	# current one, not using the first one we iterate over.
+	set_current_objective(0)
 
 
 func set_current_objective(i):
