@@ -38,3 +38,5 @@ func _process(delta):
 		var distance_to_food = (cat_pos - food_pos).length_squared()
 		if distance_to_food > AT_FOOD_DISTANCE_SQUARED:
 			global_transform.origin = cat_pos.move_toward(food_pos, MOVE_SPEED)
+		else:
+			loop_animation("EatAction")
