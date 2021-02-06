@@ -34,8 +34,7 @@ func set_current_objective(i):
 	# the new objective's area.
 	inside_objective = false
 
-	yield(VisualServer, "frame_post_draw")
-	picture_texture.texture = get_photo()
+	set_picture_texture()
 
 
 func set_inside_objective(inside: bool):
@@ -61,11 +60,36 @@ func put_down_food(player):
 	else:
 		player.play_sound("zap")
 
-func get_photo():
+func suspend_giprobe():
+	# It seems like if we want to disable a GIProbe, we have to actually
+	# disable it--we can't just put it on a 3D render layer that a camera
+	# culls out.
+	var giprobe = get_tree().root.find_node("GIProbe", true, false)
+	if giprobe:
+		giprobe.visible = false
+
+	yield()
+
+	if giprobe:
+		giprobe.visible = true
+
+
+func set_picture_texture():
+	# Disabling the GIProbe while we take the photo will cause a momentary
+	# flicker for the player, but we want the photo to have dramatically
+	# different lighting than the player's world because it adds to the
+	# challenge.
+	var giprobe = suspend_giprobe()
+
+	yield(VisualServer, "frame_post_draw")
+
 	# If we just return the texture from a Viewport's get_texture(), it will be
 	# a dynamic texture that changes with the world. We'll "snapshot" the texture's
 	# current data so it's a still image.
 	var texture = ImageTexture.new()
 	var image = objectives[current_objective_idx].picture.get_texture().get_data()
 	texture.create_from_image(image)
-	return texture
+
+	picture_texture.texture = texture
+
+	giprobe.resume()
