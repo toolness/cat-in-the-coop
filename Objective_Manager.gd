@@ -62,8 +62,10 @@ func put_down_food(player):
 		player.play_sound("zap")
 
 func get_photo():
-	return objectives[current_objective_idx].picture.get_texture()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	# If we just return the texture from a Viewport's get_texture(), it will be
+	# a dynamic texture that changes with the world. We'll "snapshot" the texture's
+	# current data so it's a still image.
+	var texture = ImageTexture.new()
+	var image = objectives[current_objective_idx].picture.get_texture().get_data()
+	texture.create_from_image(image)
+	return texture
