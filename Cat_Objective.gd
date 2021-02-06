@@ -16,8 +16,12 @@ func _ready():
 	collision_area = $Collision_Area
 	cat_spawn = $Cat_Spawn
 	picture = $Picture
-	collision_area.connect("body_entered", self, "area_entered")
-	collision_area.connect("body_exited", self, "area_exited")
+	var result = collision_area.connect("body_entered", self, "area_entered")
+	if result != OK:
+		print("could not connect body_entered signal!")
+	result = collision_area.connect("body_exited", self, "area_exited")
+	if result != OK:
+		print("could not connect body_exited signal!")
 
 
 func area_entered(node: Node):
