@@ -22,27 +22,12 @@ var flashlight
 
 var MOUSE_SENSITIVITY = 0.05
 
-var was_mousewheel_just_pushed_down = false
-var was_mousewheel_just_pushed_up = false
-
-var current_weapon_name = "UNARMED"
-var WEAPON_LIST = ["UNARMED"]
-var weapons = {}
-var WEAPON_NUMBER_TO_NAME = {}
-var WEAPON_NAME_TO_NUMBER = {}
-var changing_weapon = false
-var changing_weapon_name = "UNARMED"
-var reloading_weapon = false
-
 var JOYPAD_SENSITIVITY = 2
 var joypad
 
-var health = 100
 var picture_texture
 
 var objective_manager: ObjectiveManager
-
-var song_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
