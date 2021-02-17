@@ -43,17 +43,18 @@ func set_inside_objective(inside: bool):
 
 func put_down_food(player):
 	var catfood = catfood_scene.instance()
+	get_tree().root.add_child(catfood)
+
 	var in_front_of_player = player.global_transform.origin + (player.transform.basis.z.normalized() * CATFOOD_DISTANCE_FROM_PLAYER)
 	# TODO: Ideally we should raycast or something to make sure the food doesn't
 	# appear inside/beyonmd a wall, etc.
 	catfood.global_transform.origin = in_front_of_player
-	get_tree().root.add_child(catfood)
 
 	if inside_objective:
 		player.play_sound("jump")
 		var pos = objectives[current_objective_idx].cat_spawn.global_transform.origin
 		var cat = cat_scene.instance()
-		cat.global_transform.origin = pos
+		cat.transform.origin = pos
 		get_tree().root.add_child(cat)
 		cat.set_food(catfood)
 		set_current_objective((current_objective_idx + 1) % objectives.size())
