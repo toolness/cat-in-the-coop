@@ -7,7 +7,6 @@ var sounds = {
 	"jump": preload("res://assets/jump.wav"),
 	"quicksound": preload("res://assets/quicksound.wav"),
 	"zap": preload("res://assets/zap.wav"),
-	"song": preload("res://assets/song.wav")
 }
 
 

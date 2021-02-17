@@ -146,10 +146,6 @@ func process_input(_delta):
 		var visibility = !$HUD.visible
 		$HUD.visible = visibility
 
-		if (visibility):
-			song_player = play_sound("song")
-		elif song_player:
-			song_player.stop_sound()
 
 func process_movement(delta):
 	dir.y = 0
