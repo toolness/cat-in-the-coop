@@ -25,10 +25,8 @@ var MOUSE_SENSITIVITY = 0.05
 var was_mousewheel_just_pushed_down = false
 var was_mousewheel_just_pushed_up = false
 
-var animation_manager
-
 var current_weapon_name = "UNARMED"
-var WEAPON_LIST = ["UNARMED", "KNIFE", "PISTOL", "RIFLE"]
+var WEAPON_LIST = ["UNARMED"]
 var weapons = {}
 var WEAPON_NUMBER_TO_NAME = {}
 var WEAPON_NAME_TO_NUMBER = {}
@@ -60,9 +58,6 @@ func _ready():
 		joypad = Joypad.new()
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-	animation_manager = $Rotation_Helper/Model/Animation_Player
-	animation_manager.callback_function = funcref(self, "fire_bullet")
 
 	picture_texture = $HUD/Panel/TextureRect
 

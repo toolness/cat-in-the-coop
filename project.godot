@@ -23,17 +23,11 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
-}, {
-"base": "Spatial",
-"class": "Weapon",
-"language": "GDScript",
-"path": "res://Weapon.gd"
 } ]
 _global_script_class_icons={
 "CatObjective": "",
 "ObjectiveManager": "",
-"Player": "",
-"Weapon": ""
+"Player": ""
 }
 
 [application]
