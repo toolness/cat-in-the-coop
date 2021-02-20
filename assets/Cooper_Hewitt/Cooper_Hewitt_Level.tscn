@@ -14,7 +14,7 @@
 background_mode = 1
 background_sky = SubResource( 1 )
 adjustment_enabled = true
-adjustment_contrast = 1.35
+adjustment_contrast = 1.25
 
 [sub_resource type="SphereShape" id=3]
 radius = 6.99635
