@@ -75,17 +75,25 @@ func suspend_giprobe():
 		giprobe.visible = true
 
 
+func place_cat_for_photo():
+	var cat = cat_scene.instance()
+	var collision_area = objectives[current_objective_idx].collision_area
+
+	collision_area.add_child(cat)
+
+	yield()
+
+	collision_area.remove_child(cat)
+	cat.queue_free()
+
+
 func set_picture_texture():
 	# Disabling the GIProbe while we take the photo will cause a momentary
 	# flicker for the player, but we want the photo to have dramatically
 	# different lighting than the player's world because it adds to the
 	# challenge.
 	var giprobe = suspend_giprobe()
-
-	var cat = cat_scene.instance()
-	var ca = objectives[current_objective_idx].collision_area
-
-	ca.add_child(cat)
+	var cat = place_cat_for_photo()
 
 	yield(VisualServer, "frame_post_draw")
 
@@ -98,7 +106,5 @@ func set_picture_texture():
 
 	picture_texture.texture = texture
 
-	ca.remove_child(cat)
-	cat.queue_free()
-
+	cat.resume()
 	giprobe.resume()
