@@ -74,7 +74,11 @@ func put_down_food():
 		get_tree().root.add_child(cat)
 		cat.set_food(catfood)
 
-		yield(get_tree().create_timer(5.0), "timeout")
+		# TODO: We should really wait for a signal from the cat that indicates it has
+		# started eating its food, since the cat could be very close to it or quite
+		# far away.
+		yield(curtain.wait(5.0), "completed")
+
 		yield(curtain.show_text("You found your cat!"), "completed")
 		yield(curtain.show_text("But a week later, you lose it again."), "completed")
 		yield(
@@ -83,13 +87,13 @@ func put_down_food():
 		)
 		yield(curtain.show_text("Again, someone spots it on social media!"), "completed")
 		curtain.set_photo(photo)
-		yield(get_tree().create_timer(3.0), "timeout")
+		yield(curtain.wait(3.0), "completed")
 		hide_and_remove([catfood, cat])
 		player.reset()
 		curtain.hide()
 	else:
 		player.play_sound("zap")
-		yield(get_tree().create_timer(2.0), "timeout")
+		yield(curtain.wait(2.0), "completed")
 		yield(curtain.show_text("Alas, it seems your cat is not nearby."), "completed")
 		hide_and_remove([catfood])
 		curtain.hide()
