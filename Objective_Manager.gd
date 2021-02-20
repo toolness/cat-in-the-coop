@@ -82,6 +82,11 @@ func set_picture_texture():
 	# challenge.
 	var giprobe = suspend_giprobe()
 
+	var cat = cat_scene.instance()
+	var ca = objectives[current_objective_idx].collision_area
+
+	ca.add_child(cat)
+
 	yield(VisualServer, "frame_post_draw")
 
 	# If we just return the texture from a Viewport's get_texture(), it will be
@@ -92,5 +97,8 @@ func set_picture_texture():
 	texture.create_from_image(image)
 
 	picture_texture.texture = texture
+
+	ca.remove_child(cat)
+	cat.queue_free()
 
 	giprobe.resume()
