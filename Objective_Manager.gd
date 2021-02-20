@@ -9,7 +9,7 @@ var player
 var objectives = []
 var current_objective_idx = -1
 var inside_objective: bool
-var curtain
+onready var curtain = $Curtain
 var cat_scene = preload("res://Cat.tscn")
 var catfood_scene = preload("res://Cat_Food.tscn")
 var photo: ImageTexture
@@ -17,7 +17,6 @@ var photo: ImageTexture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	curtain = $Curtain
 	for child in get_children():
 		if child is CatObjective:
 			child.objective_manager = self

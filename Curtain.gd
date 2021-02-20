@@ -1,9 +1,9 @@
 extends ColorRect
 
 
-var label
-var photo
-var photo_image
+onready var label = $Label
+onready var photo = $Photo
+onready var photo_image = $Photo/Image
 var is_waiting: bool = false
 var latest_timer_id: int = 0
 
@@ -11,13 +11,6 @@ const DELAY_BETWEEN_CHARS = 0.05
 const END_OF_TEXT_WAIT = 2.0
 
 signal wait_finished(was_cancelled)
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	label = $Label
-	photo = $Photo
-	photo_image = $Photo/Image
-
 
 func show_text(text):
 	self.visible = true
