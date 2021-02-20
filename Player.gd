@@ -19,6 +19,8 @@ const MAX_SLOPE_ANGLE = 40
 var camera
 var rotation_helper
 var flashlight
+var starting_position
+var starting_rotation
 
 var MOUSE_SENSITIVITY = 0.05
 
@@ -31,6 +33,8 @@ var objective_manager: ObjectiveManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	starting_position = global_transform.origin
+	starting_rotation = rotation
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	flashlight = $Rotation_Helper/Flashlight
@@ -45,6 +49,11 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	picture_texture = $HUD/Panel/TextureRect
+
+
+func reset():
+	global_transform.origin = starting_position
+	rotation = starting_rotation
 
 
 func set_objective_manager(new_objective_manager):

@@ -8,6 +8,7 @@ var picture_texture
 var objectives = []
 var current_objective_idx = -1
 var inside_objective: bool
+var curtain
 var cat_scene = preload("res://Cat.tscn")
 var catfood_scene = preload("res://Cat_Food.tscn")
 
@@ -15,6 +16,7 @@ var catfood_scene = preload("res://Cat_Food.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	curtain = $Curtain
 	for child in get_children():
 		if child is CatObjective:
 			child.objective_manager = self
@@ -41,6 +43,12 @@ func set_inside_objective(inside: bool):
 	inside_objective = inside
 
 
+func hide_and_remove(things):
+	for thing in things:
+		thing.visible = false
+		thing.queue_free()
+
+
 func put_down_food(player):
 	var catfood = catfood_scene.instance()
 	get_tree().root.add_child(catfood)
@@ -57,9 +65,21 @@ func put_down_food(player):
 		cat.transform.origin = pos
 		get_tree().root.add_child(cat)
 		cat.set_food(catfood)
+
+		yield(get_tree().create_timer(5.0), "timeout")
+		yield(curtain.show_text("You found your cat!"), "completed")
+		yield(curtain.show_text("But a week later, you lose it again."), "completed")
 		set_current_objective((current_objective_idx + 1) % objectives.size())
+		hide_and_remove([catfood, cat])
+		player.reset()
+		curtain.hide()
 	else:
 		player.play_sound("zap")
+		yield(get_tree().create_timer(2.0), "timeout")
+		yield(curtain.show_text("Alas, it seems your cat is not nearby."), "completed")
+		hide_and_remove([catfood])
+		curtain.hide()
+
 
 func suspend_giprobe():
 	# It seems like if we want to disable a GIProbe, we have to actually
