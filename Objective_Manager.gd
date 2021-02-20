@@ -11,7 +11,7 @@ var inside_objective: bool
 var curtain
 var cat_scene = preload("res://Cat.tscn")
 var catfood_scene = preload("res://Cat_Food.tscn")
-
+var photo: ImageTexture
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +36,7 @@ func set_current_objective(i):
 	# the new objective's area.
 	inside_objective = false
 
-	set_picture_texture()
+	yield(set_picture_texture(), "completed")
 
 
 func set_inside_objective(inside: bool):
@@ -69,7 +69,13 @@ func put_down_food(player):
 		yield(get_tree().create_timer(5.0), "timeout")
 		yield(curtain.show_text("You found your cat!"), "completed")
 		yield(curtain.show_text("But a week later, you lose it again."), "completed")
-		set_current_objective((current_objective_idx + 1) % objectives.size())
+		yield(
+			set_current_objective((current_objective_idx + 1) % objectives.size()),
+			"completed"
+		)
+		yield(curtain.show_text("Again, someone spots it on social media!"), "completed")
+		curtain.set_photo(photo)
+		yield(get_tree().create_timer(3.0), "timeout")
 		hide_and_remove([catfood, cat])
 		player.reset()
 		curtain.hide()
@@ -124,6 +130,7 @@ func set_picture_texture():
 	var image = objectives[current_objective_idx].picture.get_texture().get_data()
 	texture.create_from_image(image)
 
+	photo = texture
 	picture_texture.texture = texture
 
 	cat.resume()

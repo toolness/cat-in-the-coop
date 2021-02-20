@@ -69,6 +69,7 @@ margin_top = 4.99997
 margin_right = 315.0
 margin_bottom = 315.0
 rect_min_size = Vector2( 300, 310 )
+expand = true
 flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
