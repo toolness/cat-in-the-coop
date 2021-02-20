@@ -5,6 +5,7 @@ class_name ObjectiveManager
 const CATFOOD_DISTANCE_FROM_PLAYER = 10
 
 var picture_texture
+var player
 var objectives = []
 var current_objective_idx = -1
 var inside_objective: bool
@@ -25,6 +26,11 @@ func _ready():
 	# TODO: We should be picking a random objective to be our
 	# current one, not using the first one we iterate over.
 	set_current_objective(0)
+
+
+func initialize(new_player, new_picture_texture):
+	player = new_player
+	picture_texture = new_picture_texture
 
 
 func set_current_objective(i):
@@ -49,7 +55,7 @@ func hide_and_remove(things):
 		thing.queue_free()
 
 
-func put_down_food(player):
+func put_down_food():
 	var catfood = catfood_scene.instance()
 	get_tree().root.add_child(catfood)
 
@@ -57,6 +63,8 @@ func put_down_food(player):
 	# TODO: Ideally we should raycast or something to make sure the food doesn't
 	# appear inside/beyonmd a wall, etc.
 	catfood.global_transform.origin = in_front_of_player
+
+	player.pause()
 
 	if inside_objective:
 		player.play_sound("jump")
@@ -85,6 +93,8 @@ func put_down_food(player):
 		yield(curtain.show_text("Alas, it seems your cat is not nearby."), "completed")
 		hide_and_remove([catfood])
 		curtain.hide()
+
+	player.unpause()
 
 
 func suspend_giprobe():

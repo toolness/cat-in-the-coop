@@ -31,6 +31,8 @@ var picture_texture
 
 var objective_manager: ObjectiveManager
 
+var is_paused: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	starting_position = global_transform.origin
@@ -58,10 +60,20 @@ func reset():
 
 func set_objective_manager(new_objective_manager):
 	objective_manager = new_objective_manager
-	objective_manager.picture_texture = picture_texture
+	objective_manager.initialize(self, picture_texture)
+
+
+func pause():
+	is_paused = true
+
+func unpause():
+	is_paused = false
 
 
 func _physics_process(delta):
+	if is_paused:
+		return
+
 	process_input(delta)
 	process_movement(delta)
 	process_view_input(delta)
@@ -129,7 +141,7 @@ func process_input(_delta):
 
 
 	if Input.is_action_just_pressed("fire"):
-		objective_manager.put_down_food(self)
+		objective_manager.put_down_food()
 
 	if Input.is_action_just_pressed("reload"):
 		var visibility = !$HUD.visible
@@ -224,6 +236,9 @@ func rotate_camera(x_axis_degrees, y_axis_degrees):
 
 
 func _input(event):
+	if is_paused:
+		return
+
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		return
 
