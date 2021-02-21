@@ -11,6 +11,8 @@ var food
 var time_elapsed = 0
 var rng
 
+signal started_eating
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_player = $AnimationPlayer
@@ -39,4 +41,5 @@ func _process(delta):
 		if distance_to_food > AT_FOOD_DISTANCE_SQUARED:
 			global_transform.origin = cat_pos.move_toward(food_pos, MOVE_SPEED)
 		else:
+			emit_signal("started_eating")
 			loop_animation("EatAction")

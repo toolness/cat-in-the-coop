@@ -85,10 +85,8 @@ func put_down_food():
 		get_tree().root.add_child(cat)
 		cat.set_food(catfood)
 
-		# TODO: We should really wait for a signal from the cat that indicates it has
-		# started eating its food, since the cat could be very close to it or quite
-		# far away.
-		yield(curtain.wait(5.0), "completed")
+		yield(cat, "started_eating")
+		yield(curtain.wait(2.5), "completed")
 
 		yield(curtain.show_text("You found your cat!"), "completed")
 		yield(curtain.show_text("But a week later, you lose it again."), "completed")
