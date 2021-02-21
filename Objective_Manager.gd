@@ -54,6 +54,18 @@ func hide_and_remove(things):
 		thing.queue_free()
 
 
+func play_intro():
+	player.pause()
+	yield(curtain.show_text("You have lost your cat."), "completed")
+	yield(curtain.show_text("But someone spots it on social media!"), "completed")
+	curtain.set_photo(photo)
+	yield(curtain.wait(3.0), "completed")
+	yield(curtain.show_text("Looks like it ran off to the Cooper Hewitt Smithsonian Design Museum!"), "completed")
+	yield(curtain.show_text("Armed with your cat's favorte noms, you sneak in late at night to find it."), "completed")
+	curtain.hide()
+	player.unpause()
+
+
 func put_down_food():
 	var catfood = catfood_scene.instance()
 	get_tree().root.add_child(catfood)

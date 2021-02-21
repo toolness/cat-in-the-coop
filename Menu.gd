@@ -21,6 +21,7 @@ func _on_StartGameButton_pressed():
 		var root = get_tree().root
 		root.add_child(level)
 		level.player.set_menu(self)
+		level.objective_manager.play_intro()
 		start_button.text = "Continue game"
 	self.visible = false
 
