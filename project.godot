@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot FPS"
-run/main_scene="res://assets/Cooper_Hewitt/Cooper_Hewitt_Level.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
 [display]
