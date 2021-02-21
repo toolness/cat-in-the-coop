@@ -3,6 +3,7 @@ extends Node
 class_name ObjectiveManager
 
 const CATFOOD_DISTANCE_FROM_PLAYER = 10
+const CATFOOD_PLAYER_X_ROTATION = 35
 
 var picture_texture
 var player
@@ -75,7 +76,7 @@ func put_down_food():
 
 	var inside_objective = objectives[current_objective_idx].collision_area.overlaps_area(catfood.collision_area)
 
-	player.slowly_rotate_camera_to_x_degrees(35)
+	player.slowly_rotate_camera_to_x_degrees(CATFOOD_PLAYER_X_ROTATION)
 
 	if inside_objective:
 		player.play_sound("jump")
