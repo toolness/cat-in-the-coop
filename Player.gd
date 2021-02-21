@@ -67,6 +67,14 @@ func pause():
 	is_paused = true
 
 func unpause():
+	# If we unpause instantly, the our input handler
+	# might process whatever the player may have just pressed to unpause,
+	# which we don't want. So we'll wait a bit before unpausing. (Note
+	# that I tried waiting for "idle_frame" and "physics_frame" instead
+	# of this hard-coded timeout, but both happened too quickly to prevent
+	# the double-processing of input.)
+	yield(get_tree().create_timer(0.05), "timeout")
+
 	is_paused = false
 
 

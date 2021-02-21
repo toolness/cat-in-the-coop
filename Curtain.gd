@@ -49,16 +49,6 @@ func wait(seconds: float):
 	var was_cancelled = yield(self, "wait_finished")
 	latest_timer_id += 1
 	is_waiting = false
-
-	if was_cancelled:
-		# Ack, if we return instantly, the player input handler
-		# will process whatever the player just pressed to cancel the timer,
-		# which we don't want. So we'll wait a bit before returning. (Note
-		# that I tried waiting for "idle_frame" and "physics_frame" instead
-		# of this hard-coded timeout, but both happened too quickly to prevent
-		# the double-processing of input.)
-		yield(get_tree().create_timer(0.05), "timeout")
-
 	return was_cancelled
 
 
