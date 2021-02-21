@@ -3,7 +3,6 @@ extends ColorRect
 
 onready var label = $Label
 onready var photo = $Photo
-onready var photo_image = $Photo/Image
 var is_waiting: bool = false
 var latest_timer_id: int = 0
 
@@ -30,7 +29,7 @@ func set_photo(texture):
 	self.visible = true
 	label.visible = false
 	photo.visible = true
-	photo_image.texture = texture
+	photo.set_photo(texture)
 
 
 func hide():

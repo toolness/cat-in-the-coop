@@ -9,6 +9,7 @@
 [ext_resource path="res://super_bright_env.tres" type="Environment" id=7]
 [ext_resource path="res://Curtain.gd" type="Script" id=8]
 [ext_resource path="res://assets/Titillium-Regular.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://Photo.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -23,10 +24,6 @@ radius = 6.99635
 
 [sub_resource type="DynamicFont" id=4]
 size = 48
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 24
 font_data = ExtResource( 9 )
 
 [sub_resource type="GIProbeData" id=5]
@@ -128,41 +125,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Photo" type="ColorRect" parent="Objective_Manager/Curtain"]
-margin_left = 330.0
-margin_top = 30.0
-margin_right = 950.0
-margin_bottom = 690.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Image" type="TextureRect" parent="Objective_Manager/Curtain/Photo"]
+[node name="Photo" parent="Objective_Manager/Curtain" instance=ExtResource( 10 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -320.0
-margin_right = 300.0
-margin_bottom = 280.0
-flip_v = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Caption" type="RichTextLabel" parent="Objective_Manager/Curtain/Photo"]
-margin_left = 11.0259
-margin_top = 624.434
-margin_right = 454.026
-margin_bottom = 664.434
-custom_fonts/normal_font = SubResource( 6 )
-bbcode_enabled = true
-bbcode_text = "[color=black]just saw a cat in the [/color][color=#6AB0DE]@cooperhewitt[/color][color=black]![/color]"
-text = "just saw a cat in the @cooperhewitt!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = -310.0
+margin_top = -330.0
+margin_right = 310.0
+margin_bottom = 330.0
 
 [node name="cooper-hewitt-take-two" parent="." instance=ExtResource( 2 )]
 
