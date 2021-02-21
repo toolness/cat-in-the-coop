@@ -52,6 +52,7 @@ func _ready():
 
 
 func set_menu(new_menu):
+	help_text.visible = true
 	menu = new_menu
 	menu.connect("continue_game", self, "_on_continue_game")
 

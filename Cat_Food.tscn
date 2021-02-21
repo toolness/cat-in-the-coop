@@ -1,5 +1,16 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Cat_Food.gd" type="Script" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+height = 1.0
 
 [node name="CatFood" type="Spatial"]
+script = ExtResource( 1 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
+
+[node name="Collision_Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Collision_Area"]
+shape = SubResource( 1 )

@@ -8,7 +8,6 @@ var picture_texture
 var player
 var objectives = []
 var current_objective_idx = -1
-var inside_objective: bool
 onready var curtain = $Curtain
 var cat_scene = preload("res://Cat.tscn")
 var catfood_scene = preload("res://Cat_Food.tscn")
@@ -19,7 +18,6 @@ var photo: ImageTexture
 func _ready():
 	for child in get_children():
 		if child is CatObjective:
-			child.objective_manager = self
 			objectives.append(child)
 			child.visible = false
 	# TODO: We should be picking a random objective to be our
@@ -37,15 +35,8 @@ func set_current_objective(i):
 		objectives[current_objective_idx].visible = false
 	current_objective_idx = i
 	objectives[current_objective_idx].visible = true
-	# TODO: This might be bad if the player is already in
-	# the new objective's area.
-	inside_objective = false
 
 	yield(set_picture_texture(), "completed")
-
-
-func set_inside_objective(inside: bool):
-	inside_objective = inside
 
 
 func hide_and_remove(things):
@@ -72,10 +63,17 @@ func put_down_food():
 
 	var in_front_of_player = player.global_transform.origin + (player.transform.basis.z.normalized() * CATFOOD_DISTANCE_FROM_PLAYER)
 	# TODO: Ideally we should raycast or something to make sure the food doesn't
-	# appear inside/beyonmd a wall, etc.
+	# appear inside/beyond a wall, etc.
 	catfood.global_transform.origin = in_front_of_player
 
 	player.pause()
+
+	# We want to give the engine time to calculate overlapping areas for our newly-placed cat food.
+	# For some reason we need to wait *twice* for the physics_frame signal for this to work.
+	yield(get_tree(), "physics_frame")
+	yield(get_tree(), "physics_frame")
+
+	var inside_objective = objectives[current_objective_idx].collision_area.overlaps_area(catfood.collision_area)
 
 	if inside_objective:
 		player.play_sound("jump")
