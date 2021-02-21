@@ -13,7 +13,7 @@ func _ready():
 	pass
 
 
-func _on_StartGameButton_button_up():
+func _on_StartGameButton_pressed():
 	if level:
 		emit_signal("continue_game")
 	else:
@@ -25,7 +25,7 @@ func _on_StartGameButton_button_up():
 	self.visible = false
 
 
-func _on_QuitGameButton_button_up():
+func _on_QuitGameButton_pressed():
 	get_tree().quit()
 
 
@@ -41,4 +41,4 @@ func _input(_event):
 		return
 	if Input.is_action_just_pressed("ui_cancel"):
 		if level:
-			_on_StartGameButton_button_up()
+			_on_StartGameButton_pressed()

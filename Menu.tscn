@@ -115,5 +115,5 @@ margin_top = 77.0
 margin_right = 318.0
 margin_bottom = 95.0
 text = "an oddity by T-Sub Squiggle"
-[connection signal="button_up" from="StartGameButton" to="." method="_on_StartGameButton_button_up"]
-[connection signal="button_up" from="QuitGameButton" to="." method="_on_QuitGameButton_button_up"]
+[connection signal="pressed" from="StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
