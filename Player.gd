@@ -16,11 +16,12 @@ var dir = Vector3()
 const DEACCEL = 16
 const MAX_SLOPE_ANGLE = 40
 
-var camera
-var rotation_helper
-var flashlight
+onready var camera = $Rotation_Helper/Camera
+onready var rotation_helper = $Rotation_Helper
+onready var flashlight = $Rotation_Helper/Flashlight
 var starting_position
 var starting_rotation
+onready var help_text = $HelpText
 
 var MOUSE_SENSITIVITY = 0.05
 
@@ -29,7 +30,7 @@ var joypad
 
 var menu = null
 
-var picture_texture
+onready var picture_texture = $HUD/Panel/TextureRect
 
 var objective_manager: ObjectiveManager
 
@@ -39,9 +40,6 @@ var is_paused: bool = false
 func _ready():
 	starting_position = global_transform.origin
 	starting_rotation = rotation
-	camera = $Rotation_Helper/Camera
-	rotation_helper = $Rotation_Helper
-	flashlight = $Rotation_Helper/Flashlight
 
 	camera.make_current()
 
@@ -51,8 +49,6 @@ func _ready():
 		joypad = Joypad.new()
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-	picture_texture = $HUD/Panel/TextureRect
 
 
 func set_menu(new_menu):
@@ -154,6 +150,7 @@ func process_input(_delta):
 	# ----------------------------
 
 	if Input.is_action_just_pressed("ui_cancel"):
+		help_text.visible = false
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
