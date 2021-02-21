@@ -8,7 +8,6 @@ var AT_FOOD_DISTANCE_SQUARED = AT_FOOD_DISTANCE * AT_FOOD_DISTANCE
 var anim_player
 var food
 
-var time_elapsed = 0
 var rng
 
 signal started_eating
@@ -18,7 +17,6 @@ func _ready():
 	anim_player = $AnimationPlayer
 	loop_animation("ArmatureAction")
 	anim_player.connect("animation_finished", self, "loop_animation")
-	time_elapsed = 0
 	rng = RandomNumberGenerator.new()
 
 
@@ -32,8 +30,7 @@ func set_food(new_food):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	time_elapsed += delta
+func _process(_delta):
 	if food:
 		var cat_pos = global_transform.origin
 		var food_pos = food.global_transform.origin
