@@ -75,6 +75,8 @@ func put_down_food():
 
 	var inside_objective = objectives[current_objective_idx].collision_area.overlaps_area(catfood.collision_area)
 
+	player.slowly_rotate_camera_to_x_degrees(35)
+
 	if inside_objective:
 		player.play_sound("jump")
 		var pos = objectives[current_objective_idx].cat_spawn.global_transform.origin

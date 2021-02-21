@@ -251,9 +251,26 @@ func rotate_camera(x_axis_degrees, y_axis_degrees):
 	rotation_helper.rotate_x(deg2rad(x_axis_degrees))
 	self.rotate_y(deg2rad(y_axis_degrees))
 
+	set_camera_x_rotation(rotation_helper.rotation_degrees.x)
+
+
+func set_camera_x_rotation(degrees):
 	var camera_rot = rotation_helper.rotation_degrees
-	camera_rot.x = clamp(camera_rot.x, -70, 70)
+	camera_rot.x = clamp(degrees, -70, 70)
 	rotation_helper.rotation_degrees = camera_rot
+
+
+func slowly_rotate_camera_to_x_degrees(degrees):
+	var curr_degrees = rotation_helper.rotation_degrees.x
+	var dist = int(abs(curr_degrees - degrees))
+	var velocity = 1
+	if degrees < curr_degrees:
+		velocity *= -1
+	for _i in range(dist):
+		curr_degrees += velocity
+		set_camera_x_rotation(curr_degrees)
+		yield(get_tree(), "idle_frame")
+	set_camera_x_rotation(degrees)
 
 
 func _input(event):
