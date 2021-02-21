@@ -160,7 +160,7 @@ func process_input(_delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			if menu:
 				pause()
-				menu.activate()
+				menu.activate(objective_manager.photo)
 
 
 	if Input.is_action_just_pressed("fire"):

@@ -2,7 +2,10 @@ extends Control
 
 
 var level = null
+onready var objective_instructions = $Objective
+onready var photo = $Objective/Photo
 onready var start_button = $StartGameButton
+onready var title = $Title
 signal continue_game
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +29,10 @@ func _on_QuitGameButton_button_up():
 	get_tree().quit()
 
 
-func activate():
+func activate(photo_texture: ImageTexture):
+	title.visible = false
+	objective_instructions.visible = true
+	photo.set_photo(photo_texture)
 	self.visible = true
 
 

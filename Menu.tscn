@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Photo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Titillium-Regular.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -37,5 +43,77 @@ text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Objective" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 313.951
+margin_top = 1.18921
+margin_bottom = 1.18921
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Photo" parent="Objective" instance=ExtResource( 2 )]
+margin_left = 316.639
+margin_top = 26.0433
+margin_right = 936.639
+margin_bottom = 686.043
+
+[node name="Label" type="Label" parent="Objective"]
+margin_left = 15.4816
+margin_top = 31.2432
+margin_right = 300.482
+margin_bottom = 685.243
+text = "Current objective:
+
+Find where this photo was taken and place some noms down to find your cat.
+
+Controls:
+
+WASD moves you around the world.
+
+Use the mouse to look around.
+
+Left click places noms on the ground.
+
+F activates your flashlight.
+
+R shows the photo in picture-in-picture mode.
+
+ESC toggles the display of this screen."
+autowrap = true
+
+[node name="Title" type="Control" parent="."]
+margin_left = 404.0
+margin_top = 62.0
+margin_right = 1204.0
+margin_bottom = 653.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.0
+margin_top = -36.0
+margin_right = 228.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 1 )
+text = "Cat in the Coop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Title/Label"]
+margin_left = 141.0
+margin_top = 77.0
+margin_right = 318.0
+margin_bottom = 95.0
+text = "an oddity by T-Sub Squiggle"
 [connection signal="button_up" from="StartGameButton" to="." method="_on_StartGameButton_button_up"]
 [connection signal="button_up" from="QuitGameButton" to="." method="_on_QuitGameButton_button_up"]
