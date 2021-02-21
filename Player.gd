@@ -27,6 +27,8 @@ var MOUSE_SENSITIVITY = 0.05
 var JOYPAD_SENSITIVITY = 2
 var joypad
 
+var menu = null
+
 var picture_texture
 
 var objective_manager: ObjectiveManager
@@ -51,6 +53,16 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	picture_texture = $HUD/Panel/TextureRect
+
+
+func set_menu(new_menu):
+	menu = new_menu
+	menu.connect("continue_game", self, "_on_continue_game")
+
+
+func _on_continue_game():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	unpause()
 
 
 func reset():
@@ -146,6 +158,9 @@ func process_input(_delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			if menu:
+				pause()
+				menu.activate()
 
 
 	if Input.is_action_just_pressed("fire"):

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+
+[node name="Menu" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGameButton" type="Button" parent="."]
+margin_left = 26.0
+margin_top = 18.0
+margin_right = 310.0
+margin_bottom = 127.0
+text = "Start game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitGameButton" type="Button" parent="."]
+margin_left = 22.4324
+margin_top = 590.009
+margin_right = 306.432
+margin_bottom = 699.009
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="StartGameButton" to="." method="_on_StartGameButton_button_up"]
+[connection signal="button_up" from="QuitGameButton" to="." method="_on_QuitGameButton_button_up"]
