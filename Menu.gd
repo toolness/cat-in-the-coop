@@ -6,12 +6,14 @@ onready var objective_instructions = $Objective
 onready var photo = $Objective/Photo
 onready var start_button = $StartGameButton
 onready var title = $Title
+onready var quit_button = $QuitGameButton
 var activate_start_time = 0
 signal continue_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if OS.get_name() == "HTML5":
+		quit_button.visible = false
 
 
 func _on_StartGameButton_pressed():
