@@ -21,6 +21,6 @@ const result = child_process.spawnSync('godot', [
   stdio: 'inherit',
 });
 
-if (!result.status) {
+if (result.status || result.status === null) {
   process.exit(1);
 }
