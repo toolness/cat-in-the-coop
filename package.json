@@ -1,0 +1,19 @@
+{
+  "name": "cat-in-the-coop",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "export": "node export.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toolness/cat-in-the-coop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toolness/cat-in-the-coop/issues"
+  },
+  "homepage": "https://github.com/toolness/cat-in-the-coop#readme"
+}
