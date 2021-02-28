@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Cat_Objective.gd" type="Script" id=1]
 
+[sub_resource type="SphereShape" id=1]
+radius = 14.0
+
 [node name="Cat_Objective" type="Spatial"]
 script = ExtResource( 1 )
+
+[node name="Picture" type="Viewport" parent="."]
+size = Vector2( 600, 600 )
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Camera" type="Camera" parent="Picture"]
+far = 1000.0
+
+[node name="Cat_Spawn" type="Spatial" parent="."]
+
+[node name="Collision_Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Collision_Area"]
+shape = SubResource( 1 )
