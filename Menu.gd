@@ -6,6 +6,7 @@ onready var objective_instructions = $Objective
 onready var photo = $Objective/Photo
 onready var start_button = $StartGameButton
 onready var title = $Title
+var activate_start_time = 0
 signal continue_game
 
 # Called when the node enters the scene tree for the first time.
@@ -35,11 +36,18 @@ func activate(photo_texture: ImageTexture):
 	objective_instructions.visible = true
 	photo.set_photo(photo_texture)
 	self.visible = true
+	activate_start_time = OS.get_ticks_msec()
 
 
-func _input(_event):
-	if not self.visible:
+func _input(event):
+	# If we process input instantly after being activated, our input handler
+	# might process whatever the player may have just pressed to pause,
+	# which we don't want. So we'll wait a bit before processing input to
+	# potentially unpause the game.
+	var did_time_pass = OS.get_ticks_msec() - activate_start_time > 250
+
+	if not (self.visible and did_time_pass):
 		return
-	if Input.is_action_just_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel"):
 		if level:
 			_on_StartGameButton_pressed()

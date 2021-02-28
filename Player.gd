@@ -146,21 +146,6 @@ func process_input(_delta):
 			play_sound("jump", global_transform)
 			vel.y = JUMP_SPEED
 
-	# ----------------------------
-	# Capturing/freeing the cursor
-	# ----------------------------
-
-	if Input.is_action_just_pressed("ui_cancel"):
-		help_text.visible = false
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			if menu:
-				pause()
-				menu.activate(objective_manager.photo)
-
-
 	if Input.is_action_just_pressed("fire"):
 		objective_manager.put_down_food()
 
@@ -277,7 +262,26 @@ func _input(event):
 	if is_paused:
 		return
 
+	# ----------------------------
+	# Capturing/freeing the cursor
+	# ----------------------------
+
+	if event.is_action_pressed("ui_cancel"):
+		help_text.visible = false
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		# Either we just uncaptured our mouse in response to a ui_cancel
+		# event, or it's also possible that the user is in the HTML5
+		# version of the game and pressed ESC, which made their browser
+		# forcibly un-capture our mouse. Either way, activate
+		# our menu.
+		if menu:
+			pause()
+			menu.activate(objective_manager.photo)
 		return
 
 	if event is InputEventMouseMotion:

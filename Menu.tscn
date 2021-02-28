@@ -82,7 +82,7 @@ F activates your flashlight.
 
 R shows the photo in picture-in-picture mode.
 
-ESC toggles the display of this screen."
+Tab toggles the display of this screen."
 autowrap = true
 
 [node name="Title" type="Control" parent="."]
