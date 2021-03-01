@@ -25,7 +25,7 @@ adjustment_contrast = 1.25
 size = 48
 font_data = ExtResource( 9 )
 
-[sub_resource type="GIProbeData" id=5]
+[sub_resource type="GIProbeData" id=4]
 
 [node name="Cooper_Hewitt_Level" type="Spatial"]
 script = ExtResource( 6 )
@@ -39,19 +39,6 @@ environment = SubResource( 2 )
 [node name="Objective_Manager" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="Cat_Objective" parent="Objective_Manager" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -82.6492, 0 )
-
-[node name="Camera" parent="Objective_Manager/Cat_Objective/Picture" index="0"]
-transform = Transform( 0.482714, -0.533799, 0.694295, 0, 0.792775, 0.609515, -0.875778, -0.294221, 0.382684, 62.5929, -69.2012, -3.50775 )
-environment = ExtResource( 7 )
-
-[node name="Cat_Spawn" parent="Objective_Manager/Cat_Objective" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.4767, -2.50065, 2.08199 )
-
-[node name="Collision_Area" parent="Objective_Manager/Cat_Objective" index="2"]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 44.2319, -4.2684, -5.9541 )
-
 [node name="Cat_Objective2" parent="Objective_Manager" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1195, -82.6492, 115.815 )
 
@@ -64,6 +51,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.983, -2.79198, 26.5267 )
 
 [node name="Collision_Area" parent="Objective_Manager/Cat_Objective2" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8502, -4.2684, 0 )
+
+[node name="Cat_Objective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -82.6492, 0 )
+
+[node name="Camera" parent="Objective_Manager/Cat_Objective/Picture" index="0"]
+transform = Transform( 0.482714, -0.533799, 0.694295, 0, 0.792775, 0.609515, -0.875778, -0.294221, 0.382684, 62.5929, -69.2012, -3.50775 )
+environment = ExtResource( 7 )
+
+[node name="Cat_Spawn" parent="Objective_Manager/Cat_Objective" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.4767, -2.50065, 2.08199 )
+
+[node name="Collision_Area" parent="Objective_Manager/Cat_Objective" index="2"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 44.2319, -4.2684, -5.9541 )
 
 [node name="Curtain" type="ColorRect" parent="Objective_Manager"]
 visible = false
@@ -132,8 +132,8 @@ script = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3078, -38.5016, 0 )
 extents = Vector3( 133.466, 69.6471, 370.986 )
 interior = true
-data = SubResource( 5 )
-
-[editable path="Objective_Manager/Cat_Objective"]
+data = SubResource( 4 )
 
 [editable path="Objective_Manager/Cat_Objective2"]
+
+[editable path="Objective_Manager/Cat_Objective"]
