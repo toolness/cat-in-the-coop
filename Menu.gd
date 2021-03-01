@@ -33,6 +33,10 @@ func _on_QuitGameButton_pressed():
 	get_tree().quit()
 
 
+func _on_CreditsButton_pressed():
+	var _result = OS.shell_open("https://github.com/toolness/cat-in-the-coop#credits")
+
+
 func activate(photo_texture: ImageTexture):
 	title.visible = false
 	objective_instructions.visible = true

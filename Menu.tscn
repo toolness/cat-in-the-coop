@@ -34,6 +34,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CreditsButton" type="Button" parent="."]
+margin_left = 22.432
+margin_top = 470.0
+margin_right = 306.432
+margin_bottom = 579.0
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="QuitGameButton" type="Button" parent="."]
 margin_left = 22.4324
 margin_top = 590.009
@@ -114,6 +124,7 @@ margin_left = 141.0
 margin_top = 77.0
 margin_right = 318.0
 margin_bottom = 95.0
-text = "an oddity by T-Sub Squiggle"
+text = "a game by T-Sub Squiggle"
 [connection signal="pressed" from="StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
