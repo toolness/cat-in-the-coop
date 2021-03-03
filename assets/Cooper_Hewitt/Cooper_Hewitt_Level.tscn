@@ -184,6 +184,16 @@ bake_extents = Vector3( 32.4719, 28.4611, 32.4044 )
 bake_default_texels_per_unit = 1.0
 image_path = "res://assets/Cooper_Hewitt/baked-lightmap-2"
 
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( -1.62921e-07, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 1.15202e-07, -1.15202e-07, 188.801, -48.7179, -62.2955 )
+light_specular = 0.0
+shadow_enabled = true
+shadow_reverse_cull_face = true
+spot_range = 300.0
+spot_attenuation = 1.93187
+spot_angle = 72.4569
+spot_angle_attenuation = 0.90125
+
 [editable path="Objective_Manager/Cat_Objective2"]
 
 [editable path="Objective_Manager/Cat_Objective"]
