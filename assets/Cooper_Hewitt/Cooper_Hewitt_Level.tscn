@@ -143,6 +143,15 @@ bake_extents = Vector3( 133.466, 69.6471, 370.986 )
 bake_default_texels_per_unit = 1.0
 image_path = "res://assets/Cooper_Hewitt/baked-lightmap"
 
+[node name="BakedLightmap2" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 87.5907, -63.4805, 209.891 )
+bake_cell_size = 10.0
+bake_quality = 2
+bake_mode = 1
+bake_extents = Vector3( 32.4719, 28.4611, 32.4044 )
+bake_default_texels_per_unit = 1.0
+image_path = "res://assets/Cooper_Hewitt/baked-lightmap-2"
+
 [node name="Lamp" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.293, -85.9195, -40.6824 )
 
@@ -159,7 +168,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.8519, -86.1339, 183.539 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.7241, -85.9195, -122.253 )
 
 [node name="Lamp3" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.617, -80.3921, -232.509 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.617, -79.5092, -232.509 )
 
 [node name="Lamp4" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.6509, -86.2872, -200.072 )
