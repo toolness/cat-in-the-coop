@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Cooper_Hewitt/gltf/cooper-hewitt-take-two.gltf" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Curtain.gd" type="Script" id=8]
 [ext_resource path="res://assets/Titillium-Regular.otf" type="DynamicFontData" id=9]
 [ext_resource path="res://Photo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Lamp.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -17,7 +18,7 @@
 background_mode = 1
 background_sky = SubResource( 1 )
 ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.46
+ambient_light_energy = 0.15
 adjustment_enabled = true
 adjustment_contrast = 1.25
 
@@ -106,33 +107,82 @@ margin_bottom = 330.0
 
 [node name="cooper-hewitt-take-two" parent="." instance=ExtResource( 2 )]
 
-[node name="OmniLight" type="OmniLight" parent="."]
+[node name="Lights" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -57.0199, 43.0554 )
-light_energy = 0.25
-light_indirect_energy = 20.0
-shadow_enabled = true
-omni_range = 89.2
 
-[node name="OmniLight3" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -52.3541, -24.3032 )
-light_energy = 0.25
+[node name="ChandelierLight" type="OmniLight" parent="Lights"]
 light_indirect_energy = 20.0
-shadow_enabled = true
 omni_range = 89.2
+omni_attenuation = 3.48
 
-[node name="OmniLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -51.6849, 103.3 )
-light_energy = 0.25
+[node name="ChandelierLight3" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6658, -67.3586 )
 light_indirect_energy = 20.0
-shadow_enabled = true
 omni_range = 89.2
+omni_attenuation = 3.48
+
+[node name="ChandelierLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.335, 60.2446 )
+light_indirect_energy = 20.0
+omni_range = 89.2
+omni_attenuation = 3.48
 script = ExtResource( 4 )
+
+[node name="Lamp" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9025, -28.8996, -122.991 )
+
+[node name="Lamp6" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.0677, -29.114, 123.245 )
+
+[node name="Lamp10" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8133, -29.114, 1.48877 )
+
+[node name="Lamp7" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5207, -29.114, 142.164 )
+
+[node name="Lamp8" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9116, -29.114, 140.484 )
+
+[node name="Lamp2" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.9204, -28.8996, -139.047 )
+
+[node name="Lamp3" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6767, -22.4893, -275.564 )
+
+[node name="Lamp9" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8635, -28.8132, -308.983 )
+
+[node name="Lamp5" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8819, -29.2673, -191.203 )
+
+[node name="Lamp11" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0037, -29.0245, -44.6325 )
+
+[node name="Lamp4" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5912, -29.2673, -243.127 )
 
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3078, -38.5016, 0 )
 extents = Vector3( 133.466, 69.6471, 370.986 )
 interior = true
 data = SubResource( 4 )
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3078, -38.5016, 0 )
+bake_cell_size = 10.0
+bake_energy = 10.0
+bake_extents = Vector3( 133.466, 69.6471, 370.986 )
+bake_default_texels_per_unit = 1.0
+image_path = "res://assets/Cooper_Hewitt/baked-lightmap"
+
+[node name="BakedLightmap2" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 87.5907, -63.4805, 209.891 )
+bake_cell_size = 10.0
+bake_quality = 2
+bake_mode = 1
+bake_extents = Vector3( 32.4719, 28.4611, 32.4044 )
+bake_default_texels_per_unit = 1.0
+image_path = "res://assets/Cooper_Hewitt/baked-lightmap-2"
 
 [editable path="Objective_Manager/Cat_Objective2"]
 
