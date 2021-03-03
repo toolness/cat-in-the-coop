@@ -107,24 +107,53 @@ margin_bottom = 330.0
 
 [node name="cooper-hewitt-take-two" parent="." instance=ExtResource( 2 )]
 
-[node name="OmniLight" type="OmniLight" parent="."]
+[node name="Lights" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -57.0199, 43.0554 )
+
+[node name="ChandelierLight" type="OmniLight" parent="Lights"]
 light_energy = 0.25
 light_indirect_energy = 20.0
 omni_range = 89.2
 
-[node name="OmniLight3" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -52.3541, -24.3032 )
+[node name="ChandelierLight3" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6658, -67.3586 )
 light_energy = 0.25
 light_indirect_energy = 20.0
 omni_range = 89.2
 
-[node name="OmniLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -51.6849, 103.3 )
+[node name="ChandelierLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.335, 60.2446 )
 light_energy = 0.25
 light_indirect_energy = 20.0
 omni_range = 89.2
 script = ExtResource( 4 )
+
+[node name="Lamp" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9025, -28.8996, -122.991 )
+
+[node name="Lamp6" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.0677, -29.114, 123.245 )
+
+[node name="Lamp7" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5207, -29.114, 142.164 )
+
+[node name="Lamp8" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9116, -29.114, 140.484 )
+
+[node name="Lamp2" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.9204, -28.8996, -139.047 )
+
+[node name="Lamp3" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6767, -22.4893, -275.564 )
+
+[node name="Lamp9" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8635, -28.8132, -308.983 )
+
+[node name="Lamp5" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8819, -29.2673, -191.203 )
+
+[node name="Lamp4" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5912, -29.2673, -243.127 )
 
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3078, -38.5016, 0 )
@@ -148,33 +177,6 @@ bake_mode = 1
 bake_extents = Vector3( 32.4719, 28.4611, 32.4044 )
 bake_default_texels_per_unit = 1.0
 image_path = "res://assets/Cooper_Hewitt/baked-lightmap-2"
-
-[node name="Lamp" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 107.843, -85.9195, -79.9354 )
-
-[node name="Lamp6" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 114.008, -86.1339, 166.301 )
-
-[node name="Lamp7" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5804, -86.1339, 185.22 )
-
-[node name="Lamp8" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.8519, -86.1339, 183.539 )
-
-[node name="Lamp2" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.861, -85.9195, -95.9916 )
-
-[node name="Lamp3" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.617, -79.5092, -232.509 )
-
-[node name="Lamp9" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8038, -85.8331, -265.928 )
-
-[node name="Lamp4" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.6509, -86.2872, -200.072 )
-
-[node name="Lamp5" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.9416, -86.2872, -148.148 )
 
 [editable path="Objective_Manager/Cat_Objective2"]
 
