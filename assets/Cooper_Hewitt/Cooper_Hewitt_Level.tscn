@@ -111,21 +111,18 @@ margin_bottom = 330.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -57.0199, 43.0554 )
 light_energy = 0.25
 light_indirect_energy = 20.0
-shadow_enabled = true
 omni_range = 89.2
 
 [node name="OmniLight3" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -52.3541, -24.3032 )
 light_energy = 0.25
 light_indirect_energy = 20.0
-shadow_enabled = true
 omni_range = 89.2
 
 [node name="OmniLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9403, -51.6849, 103.3 )
 light_energy = 0.25
 light_indirect_energy = 20.0
-shadow_enabled = true
 omni_range = 89.2
 script = ExtResource( 4 )
 
