@@ -155,6 +155,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8635, -28.8132, -308.983 )
 [node name="Lamp5" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8819, -29.2673, -191.203 )
 
+[node name="Lamp11" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0037, -29.0245, -44.6325 )
+
 [node name="Lamp4" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5912, -29.2673, -243.127 )
 
