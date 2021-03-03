@@ -150,22 +150,25 @@ bake_default_texels_per_unit = 1.0
 image_path = "res://assets/Cooper_Hewitt/baked-lightmap-2"
 
 [node name="Lamp" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.293, -85.9195, -40.6824 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 107.843, -85.9195, -79.9354 )
 
 [node name="Lamp6" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.7439, -86.1339, 171.828 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 114.008, -86.1339, 166.301 )
 
 [node name="Lamp7" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.168367, -86.1339, 180.566 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5804, -86.1339, 185.22 )
 
 [node name="Lamp8" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.8519, -86.1339, 183.539 )
 
 [node name="Lamp2" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.7241, -85.9195, -122.253 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.861, -85.9195, -95.9916 )
 
 [node name="Lamp3" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.617, -79.5092, -232.509 )
+
+[node name="Lamp9" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8038, -85.8331, -265.928 )
 
 [node name="Lamp4" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.6509, -86.2872, -200.072 )
