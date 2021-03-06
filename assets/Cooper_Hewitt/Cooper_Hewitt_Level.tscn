@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Cooper_Hewitt/gltf/cooper-hewitt-take-two.gltf" type="PackedScene" id=2]
@@ -28,6 +28,8 @@ size = 48
 font_data = ExtResource( 9 )
 
 [sub_resource type="GIProbeData" id=4]
+
+[sub_resource type="SpatialMaterial" id=6]
 
 [sub_resource type="SpatialMaterial" id=5]
 
@@ -235,6 +237,27 @@ width = 4.91366
 height = 36.2753
 depth = 26.0552
 material = ExtResource( 12 )
+
+[node name="WindowBox5" type="CSGBox" parent="Black boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.232, -71.597, 39.2265 )
+width = 4.91366
+height = 13.8302
+depth = 4.78563
+material = ExtResource( 12 )
+
+[node name="WindowBox6" type="CSGBox" parent="Black boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.232, -71.597, 46.677 )
+width = 4.91366
+height = 13.8302
+depth = 4.78563
+material = ExtResource( 12 )
+
+[node name="MirrorBox" type="CSGBox" parent="Black boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1822, -65.5287, 171.501 )
+width = 12.6326
+height = 20.2184
+depth = 4.78563
+material = SubResource( 6 )
 
 [node name="WindowBox4" type="CSGBox" parent="Black boxes"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2562, -69.629, -174.404 )
