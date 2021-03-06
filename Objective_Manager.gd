@@ -21,9 +21,7 @@ func _ready():
 		if child is CatObjective:
 			objectives.append(child)
 			child.visible = false
-	# TODO: We should be picking a random objective to be our
-	# current one, not using the first one we iterate over.
-	set_current_objective(0)
+	set_current_objective(PlayerConfig.current_objective)
 
 
 func initialize(new_player, new_picture_texture):
@@ -32,9 +30,11 @@ func initialize(new_player, new_picture_texture):
 
 
 func set_current_objective(i):
+	i = i % objectives.size()
 	if current_objective_idx != -1:
 		objectives[current_objective_idx].visible = false
 	current_objective_idx = i
+	PlayerConfig.current_objective = i
 	objectives[current_objective_idx].visible = true
 
 	yield(set_picture_texture(), "completed")
