@@ -9,3 +9,5 @@ dof_blur_far_distance = 100.0
 glow_enabled = true
 glow_intensity = 2.0
 glow_bloom = 1.0
+adjustment_enabled = true
+adjustment_contrast = 1.25
