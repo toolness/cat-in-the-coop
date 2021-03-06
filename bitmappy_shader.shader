@@ -2,7 +2,7 @@ shader_type spatial;
 
 uniform sampler2D tex;
 
-const float TEX_SIZE = 128.0;
+const float TEX_SIZE = 256.0;
 
 void fragment() {
 	float x = UV.x;
