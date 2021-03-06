@@ -68,6 +68,15 @@ transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 4
 [node name="Camera" parent="Objective_Manager/DoorwayObjective" index="3"]
 transform = Transform( 0.387962, -0.437725, 0.811099, 0, 0.880027, 0.474923, -0.921675, -0.184252, 0.341417, 63.2433, 12.5746, -4.11728 )
 
+[node name="GreenhouseObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8216, -87.0989, -217.988 )
+
+[node name="Cat_Spawn" parent="Objective_Manager/GreenhouseObjective" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0797, 0, 0 )
+
+[node name="Camera" parent="Objective_Manager/GreenhouseObjective" index="3"]
+transform = Transform( 0.876018, 0.249505, -0.412724, 0, 0.855777, 0.517345, 0.482279, -0.453203, 0.749676, -7.61961, 10.2873, 15.8886 )
+
 [node name="UnderStairsObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.7537, -86.988, -7.34485 )
 
@@ -85,6 +94,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2486, 0, 35.5637 )
 
 [node name="Camera" parent="Objective_Manager/BookshelvesObjective" index="3"]
 transform = Transform( 0.603878, 0.303154, -0.737176, 0, 0.92485, 0.380333, 0.797077, -0.229674, 0.558496, -18.9691, 13.5385, 18.5588 )
+
+[node name="GiftShopObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.7061, -87.0989, -287.671 )
+
+[node name="Cat_Spawn" parent="Objective_Manager/GiftShopObjective" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332329, 0.0205917, 30.1473 )
+
+[node name="Camera" parent="Objective_Manager/GiftShopObjective" index="3"]
+transform = Transform( 0.876018, 0.249505, -0.412724, 0, 0.855777, 0.517345, 0.482279, -0.453203, 0.749676, -7.61961, 10.2873, 15.8886 )
 
 [node name="OnStairsObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8311, -59.578, -7.34485 )
@@ -324,8 +342,12 @@ material = ExtResource( 12 )
 
 [editable path="Objective_Manager/DoorwayObjective"]
 
+[editable path="Objective_Manager/GreenhouseObjective"]
+
 [editable path="Objective_Manager/UnderStairsObjective"]
 
 [editable path="Objective_Manager/BookshelvesObjective"]
+
+[editable path="Objective_Manager/GiftShopObjective"]
 
 [editable path="Objective_Manager/OnStairsObjective"]
