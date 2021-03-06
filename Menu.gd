@@ -57,3 +57,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if level:
 			_on_StartGameButton_pressed()
+
+
+func _on_FullscreenCheckbox_toggled(is_toggled):
+	OS.window_fullscreen = is_toggled

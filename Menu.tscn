@@ -125,6 +125,17 @@ margin_top = 77.0
 margin_right = 318.0
 margin_bottom = 95.0
 text = "a game by T-Sub Squiggle"
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="."]
+margin_left = 21.0
+margin_top = 435.0
+margin_right = 307.0
+margin_bottom = 459.0
+text = "Enable fullscreen mode"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
+[connection signal="toggled" from="FullscreenCheckbox" to="." method="_on_FullscreenCheckbox_toggled"]
