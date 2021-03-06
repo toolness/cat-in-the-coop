@@ -80,6 +80,9 @@ transform = Transform( -0.901697, -0.181045, 0.39264, 0, 0.908112, 0.418727, -0.
 [node name="BookshelvesObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.9303, -86.9171, 192.385 )
 
+[node name="Cat_Spawn" parent="Objective_Manager/BookshelvesObjective" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2486, 0, 35.5637 )
+
 [node name="Camera" parent="Objective_Manager/BookshelvesObjective" index="3"]
 transform = Transform( 0.603878, 0.303154, -0.737176, 0, 0.92485, 0.380333, 0.797077, -0.229674, 0.558496, -18.9691, 13.5385, 18.5588 )
 
