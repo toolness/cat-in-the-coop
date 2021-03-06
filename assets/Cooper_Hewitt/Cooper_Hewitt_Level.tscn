@@ -68,6 +68,30 @@ transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 4
 [node name="Camera" parent="Objective_Manager/DoorwayObjective" index="3"]
 transform = Transform( 0.387962, -0.437725, 0.811099, 0, 0.880027, 0.474923, -0.921675, -0.184252, 0.341417, 63.2433, 12.5746, -4.11728 )
 
+[node name="UnderStairsObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.7537, -86.988, -7.34485 )
+
+[node name="Cat_Spawn" parent="Objective_Manager/UnderStairsObjective" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.3598 )
+
+[node name="Camera" parent="Objective_Manager/UnderStairsObjective" index="3"]
+transform = Transform( -0.901697, -0.181045, 0.39264, 0, 0.908112, 0.418727, -0.432369, 0.377565, -0.818841, 8.05119, 14.5717, -26.9839 )
+
+[node name="BookshelvesObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.9303, -86.9171, 192.385 )
+
+[node name="Camera" parent="Objective_Manager/BookshelvesObjective" index="3"]
+transform = Transform( 0.603878, 0.303154, -0.737176, 0, 0.92485, 0.380333, 0.797077, -0.229674, 0.558496, -18.9691, 13.5385, 18.5588 )
+
+[node name="OnStairsObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8311, -59.578, -7.34485 )
+
+[node name="Cat_Spawn" parent="Objective_Manager/OnStairsObjective" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.3598 )
+
+[node name="Camera" parent="Objective_Manager/OnStairsObjective" index="3"]
+transform = Transform( 0.648162, 0.57952, -0.494007, 0, 0.648727, 0.761021, 0.761502, -0.493265, 0.42048, -2.30414, 12.9864, 3.05106 )
+
 [node name="Curtain" type="ColorRect" parent="Objective_Manager"]
 visible = false
 anchor_right = 1.0
@@ -296,3 +320,9 @@ material = ExtResource( 12 )
 [editable path="Objective_Manager/FireplaceObjective"]
 
 [editable path="Objective_Manager/DoorwayObjective"]
+
+[editable path="Objective_Manager/UnderStairsObjective"]
+
+[editable path="Objective_Manager/BookshelvesObjective"]
+
+[editable path="Objective_Manager/OnStairsObjective"]
