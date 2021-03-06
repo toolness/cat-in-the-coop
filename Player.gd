@@ -23,8 +23,6 @@ var starting_position
 var starting_rotation
 onready var help_text = $HelpText
 
-var MOUSE_SENSITIVITY = 0.05
-
 var JOYPAD_SENSITIVITY = 2
 var joypad
 
@@ -285,9 +283,10 @@ func _input(event):
 		return
 
 	if event is InputEventMouseMotion:
+		var sensitivity = PlayerConfig.mouse_sensitivity * 0.001
 		rotate_camera(
-			event.relative.y * MOUSE_SENSITIVITY,
-			event.relative.x * MOUSE_SENSITIVITY * -1
+			event.relative.y * sensitivity,
+			event.relative.x * sensitivity * -1
 		)
 
 var simple_audio_player = preload("res://Simple_Audio_Player.tscn")

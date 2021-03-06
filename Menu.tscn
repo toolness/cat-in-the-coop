@@ -125,6 +125,9 @@ margin_top = 77.0
 margin_right = 318.0
 margin_bottom = 95.0
 text = "a game by T-Sub Squiggle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FullscreenCheckbox" type="CheckBox" parent="."]
 margin_left = 21.0
@@ -135,7 +138,27 @@ text = "Enable fullscreen mode"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MouseSliderLabel" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 390.5
+margin_right = 207.0
+margin_bottom = 408.5
+text = "Mouse sensitivity"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseSlider" type="HSlider" parent="."]
+margin_left = 27.0
+margin_top = 413.0
+margin_right = 311.0
+margin_bottom = 429.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
 [connection signal="toggled" from="FullscreenCheckbox" to="." method="_on_FullscreenCheckbox_toggled"]
+[connection signal="value_changed" from="MouseSlider" to="." method="_on_MouseSlider_value_changed"]

@@ -7,11 +7,13 @@ onready var photo = $Objective/Photo
 onready var start_button = $StartGameButton
 onready var title = $Title
 onready var quit_button = $QuitGameButton
+onready var mouse_slider = $MouseSlider
 var activate_start_time = 0
 signal continue_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mouse_slider.value = PlayerConfig.mouse_sensitivity
 	if OS.get_name() == "HTML5":
 		quit_button.visible = false
 
@@ -61,3 +63,7 @@ func _input(event):
 
 func _on_FullscreenCheckbox_toggled(is_toggled):
 	OS.window_fullscreen = is_toggled
+
+
+func _on_MouseSlider_value_changed(value: float):
+	PlayerConfig.mouse_sensitivity = int(value)
