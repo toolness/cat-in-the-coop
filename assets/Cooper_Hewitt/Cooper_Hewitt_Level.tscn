@@ -134,11 +134,38 @@ script = ExtResource( 4 )
 [node name="Lamp" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9025, -28.8996, -122.991 )
 
+[node name="Lamp16" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.3185, -28.8996, -184.924 )
+
+[node name="Lamp15" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9025, -28.8996, -54.1244 )
+
+[node name="Lamp12" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4168, -28.8996, -122.991 )
+
 [node name="Lamp6" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.0677, -29.114, 123.245 )
 
+[node name="Lamp18" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.6568, -29.114, 123.245 )
+
+[node name="Lamp19" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20021, -29.114, 125.481 )
+
+[node name="Lamp20" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.781, -29.114, 153.147 )
+
+[node name="Lamp21" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2223, -29.114, 186.281 )
+
 [node name="Lamp10" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8133, -29.114, 1.48877 )
+
+[node name="Lamp13" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.2019, -29.114, 1.48877 )
+
+[node name="Lamp14" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.2527, -29.114, 48.7281 )
 
 [node name="Lamp7" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5207, -29.114, 142.164 )
@@ -152,14 +179,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.9204, -28.8996, -139.047 )
 [node name="Lamp3" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6767, -22.4893, -275.564 )
 
+[node name="Lamp17" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98.6598, -22.4893, -249.216 )
+
 [node name="Lamp9" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8635, -28.8132, -308.983 )
+
+[node name="Lamp22" parent="Lights" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66.6636, -28.8132, -332.296 )
 
 [node name="Lamp5" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8819, -29.2673, -191.203 )
 
 [node name="Lamp11" parent="Lights" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0037, -29.0245, -44.6325 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.2778, -29.0245, -70.249 )
 
 [node name="Lamp4" parent="Lights" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5912, -29.2673, -243.127 )
@@ -193,6 +226,20 @@ image_path = "res://assets/Cooper_Hewitt/baked-lightmap-2"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6383, -69.629, -176.195 )
 width = 4.91366
 height = 20.7753
+depth = 26.0552
+material = ExtResource( 12 )
+
+[node name="WindowBox3" type="CSGBox" parent="Black boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 103.906, -69.629, -174.404 )
+width = 4.91366
+height = 36.2753
+depth = 26.0552
+material = ExtResource( 12 )
+
+[node name="WindowBox4" type="CSGBox" parent="Black boxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2562, -69.629, -174.404 )
+width = 4.91366
+height = 36.2753
 depth = 26.0552
 material = ExtResource( 12 )
 
