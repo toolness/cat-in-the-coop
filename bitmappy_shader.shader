@@ -9,7 +9,9 @@ void fragment() {
 	float y = UV.y;
 	x = floor(x * TEX_SIZE) / TEX_SIZE;
 	y = floor(y * TEX_SIZE) / TEX_SIZE;
-	ALBEDO = texture(tex, vec2(x, y)).rgb;
+	// We have to use textureLod() here, as using texture() somehow
+	// causes artifacts to appear.
+	ALBEDO = textureLod(tex, vec2(x, y), 0.0).rgb;
 }
 
 void light() {
