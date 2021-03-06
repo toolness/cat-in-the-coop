@@ -151,6 +151,14 @@ func process_input(_delta):
 		var visibility = !$HUD.visible
 		$HUD.visible = visibility
 
+	# Note that these keys are intended for debugging purposes.
+
+	if Input.is_action_just_pressed("shift_weapon_positive"):
+		objective_manager.goto_next_objective()
+
+	if Input.is_action_just_pressed("shift_weapon_negative"):
+		objective_manager.goto_previous_objective()
+
 
 func process_movement(delta):
 	dir.y = 0

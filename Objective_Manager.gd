@@ -29,7 +29,17 @@ func initialize(new_player, new_picture_texture):
 	picture_texture = new_picture_texture
 
 
+func goto_next_objective():
+	return set_current_objective(current_objective_idx + 1)
+
+
+func goto_previous_objective():
+	return set_current_objective(current_objective_idx - 1)
+
+
 func set_current_objective(i):
+	if i < 0:
+		i = abs(objectives.size() + i)
 	i = i % objectives.size()
 	if current_objective_idx != -1:
 		objectives[current_objective_idx].visible = false
@@ -91,10 +101,7 @@ func put_down_food():
 
 		yield(curtain.show_text("You found your cat!"), "completed")
 		yield(curtain.show_text("But a week later, you lose it again."), "completed")
-		yield(
-			set_current_objective((current_objective_idx + 1) % objectives.size()),
-			"completed"
-		)
+		yield(goto_next_objective(), "completed")
 		yield(curtain.show_text("Again, someone spots it on social media!"), "completed")
 		curtain.set_photo(photo)
 		yield(curtain.wait(3.0), "completed")
