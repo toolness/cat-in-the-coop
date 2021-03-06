@@ -144,6 +144,7 @@ func set_picture_texture():
 	# challenge.
 	var giprobe = suspend_giprobe()
 	var cat = place_cat_for_photo()
+	get_tree().call_group("lamps", "turn_off")
 
 	yield(VisualServer, "frame_post_draw")
 
@@ -157,5 +158,6 @@ func set_picture_texture():
 	photo = texture
 	picture_texture.texture = texture
 
+	get_tree().call_group("lamps", "turn_on")
 	cat.resume()
 	giprobe.resume()
