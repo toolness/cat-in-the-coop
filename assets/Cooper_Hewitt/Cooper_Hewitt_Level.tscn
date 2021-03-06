@@ -104,6 +104,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332329, 0.0205917, 30.1473 
 [node name="Camera" parent="Objective_Manager/GiftShopObjective" index="3"]
 transform = Transform( 0.876018, 0.249505, -0.412724, 0, 0.855777, 0.517345, 0.482279, -0.453203, 0.749676, -7.61961, 10.2873, 15.8886 )
 
+[node name="LobbyObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6489, -99.1504, 77.8576 )
+
+[node name="Cat_Spawn" parent="Objective_Manager/LobbyObjective" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.505, 0, -32.1096 )
+
+[node name="Camera" parent="Objective_Manager/LobbyObjective" index="3"]
+transform = Transform( -0.96126, -0.08497, 0.262221, 0, 0.951302, 0.30826, -0.275644, 0.296318, -0.914448, 5.7543, 14.175, -23.9006 )
+
 [node name="OnStairsObjective" parent="Objective_Manager" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.8311, -59.578, -7.34485 )
 
@@ -349,5 +358,7 @@ material = ExtResource( 12 )
 [editable path="Objective_Manager/BookshelvesObjective"]
 
 [editable path="Objective_Manager/GiftShopObjective"]
+
+[editable path="Objective_Manager/LobbyObjective"]
 
 [editable path="Objective_Manager/OnStairsObjective"]
