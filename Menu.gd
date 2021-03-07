@@ -43,7 +43,10 @@ func _on_CreditsButton_pressed():
 	yield(credits, "finished")
 	root.remove_child(credits)
 	make_visible_again()
-	# var _result = OS.shell_open("https://github.com/toolness/cat-in-the-coop#credits")
+
+
+func _on_WebsiteButton_pressed():
+	var _result = OS.shell_open("https://github.com/toolness/cat-in-the-coop")
 
 
 func make_visible_again():

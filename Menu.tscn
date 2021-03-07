@@ -19,6 +19,8 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
 color = Color( 0, 0, 0, 0.784314 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -37,9 +39,19 @@ __meta__ = {
 [node name="CreditsButton" type="Button" parent="."]
 margin_left = 22.432
 margin_top = 470.0
-margin_right = 306.432
+margin_right = 157.432
 margin_bottom = 579.0
 text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WebsiteButton" type="Button" parent="."]
+margin_left = 170.0
+margin_top = 470.0
+margin_right = 305.0
+margin_bottom = 580.0
+text = "Website"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -159,6 +171,7 @@ __meta__ = {
 }
 [connection signal="pressed" from="StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="WebsiteButton" to="." method="_on_WebsiteButton_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
 [connection signal="toggled" from="FullscreenCheckbox" to="." method="_on_FullscreenCheckbox_toggled"]
 [connection signal="value_changed" from="MouseSlider" to="." method="_on_MouseSlider_value_changed"]
