@@ -8,6 +8,9 @@ const CONFIG_FILENAME = "user://player_config.cfg"
 
 var mouse_sensitivity: int setget set_mouse_sensitivity
 var current_objective: int setget set_current_objective
+var music_enabled: bool setget set_music_enabled
+
+signal music_enabled_changed(value)
 
 
 func _get_int_value(section: String, key: String, default_value: int) -> int:
@@ -26,6 +29,7 @@ func _ready():
     _config.load(CONFIG_FILENAME)
     mouse_sensitivity = _get_int_value("input", "mouse_sensitivity", DEFAULT_MOUSE_SENSITIVITY)
     current_objective = _get_int_value("game", "current_objective", 0)
+    music_enabled = bool(_get_int_value("audio", "music_enabled", 1))
 
 
 func set_mouse_sensitivity(value: int):
@@ -36,3 +40,9 @@ func set_mouse_sensitivity(value: int):
 func set_current_objective(value: int):
     current_objective = value
     _set_int_value("game", "current_objective", value)
+
+
+func set_music_enabled(value: bool):
+    music_enabled = value
+    emit_signal("music_enabled_changed", value)
+    _set_int_value("audio", "music_enabled", int(value))

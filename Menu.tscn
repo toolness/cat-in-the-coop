@@ -144,9 +144,19 @@ __meta__ = {
 [node name="FullscreenCheckbox" type="CheckBox" parent="."]
 margin_left = 21.0
 margin_top = 435.0
-margin_right = 307.0
+margin_right = 165.0
 margin_bottom = 459.0
-text = "Enable fullscreen mode"
+text = "Enable fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicCheckbox" type="CheckBox" parent="."]
+margin_left = 166.0
+margin_top = 435.0
+margin_right = 279.0
+margin_bottom = 459.0
+text = "Enable music"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,4 +184,5 @@ __meta__ = {
 [connection signal="pressed" from="WebsiteButton" to="." method="_on_WebsiteButton_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
 [connection signal="toggled" from="FullscreenCheckbox" to="." method="_on_FullscreenCheckbox_toggled"]
+[connection signal="toggled" from="MusicCheckbox" to="." method="_on_MusicCheckbox_toggled"]
 [connection signal="value_changed" from="MouseSlider" to="." method="_on_MouseSlider_value_changed"]
