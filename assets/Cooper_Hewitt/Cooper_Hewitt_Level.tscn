@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Cooper_Hewitt/gltf/cooper-hewitt-take-two.gltf" type="PackedScene" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://assets/Cooper_Hewitt/LightFlicker.gd" type="Script" id=4]
 [ext_resource path="res://Cat_Objective.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Cooper_Hewitt/Cooper_Hewitt_Level.gd" type="Script" id=6]
-[ext_resource path="res://MusicPlayer.gd" type="Script" id=7]
-[ext_resource path="res://Curtain.gd" type="Script" id=8]
-[ext_resource path="res://assets/Titillium-Regular.otf" type="DynamicFontData" id=9]
-[ext_resource path="res://Photo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Curtain.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Lamp.tscn" type="PackedScene" id=11]
 [ext_resource path="res://midnight_black_spatialmaterial.tres" type="Material" id=12]
 
@@ -22,10 +19,6 @@ ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.15
 adjustment_enabled = true
 adjustment_contrast = 1.25
-
-[sub_resource type="DynamicFont" id=3]
-size = 48
-font_data = ExtResource( 9 )
 
 [sub_resource type="GIProbeData" id=4]
 
@@ -132,47 +125,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.3598 )
 [node name="Camera" parent="Objective_Manager/OnStairsObjective" index="3"]
 transform = Transform( 0.648162, 0.57952, -0.494007, 0, 0.648727, 0.761021, 0.761502, -0.493265, 0.42048, -2.30414, 12.9864, 3.05106 )
 
-[node name="Curtain" type="ColorRect" parent="Objective_Manager"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Objective_Manager/Curtain"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -560.0
-margin_top = -280.0
-margin_right = 560.0
-margin_bottom = 280.0
-custom_fonts/font = SubResource( 3 )
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Photo" parent="Objective_Manager/Curtain" instance=ExtResource( 10 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -310.0
-margin_top = -330.0
-margin_right = 310.0
-margin_bottom = 330.0
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="Objective_Manager"]
-script = ExtResource( 7 )
+[node name="Curtain" parent="Objective_Manager" instance=ExtResource( 8 )]
 
 [node name="cooper-hewitt-take-two" parent="." instance=ExtResource( 2 )]
 

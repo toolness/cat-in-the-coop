@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerConfig="*res://PlayerConfig.gd"
+MusicPlayer="*res://MusicPlayer.gd"
 
 [display]
 
