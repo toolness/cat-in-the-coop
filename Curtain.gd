@@ -16,11 +16,11 @@ func show_text(text):
 	label.visible = true
 	photo.visible = false
 	label.text = text
-	for i in range(len(text)):
+	for i in range(len(text) + 1):
 		label.visible_characters = i
 		var was_cancelled = yield(wait(DELAY_BETWEEN_CHARS), "completed")
 		if was_cancelled:
-			label.visible_characters = len(text) - 1
+			label.visible_characters = len(text)
 			break
 	yield(wait(END_OF_TEXT_WAIT), "completed")
 
