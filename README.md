@@ -14,6 +14,8 @@ This game was created with Godot 3.2.3 and Blender 2.91.0.
 
 The deployment scripts were created with Node v14, though it's likely that other versions will work fine too.
 
+To deploy the game to GitHub pages, run `npm run deploy`.
+
 If you change materials in Blender, or the `import_cooper_hewitt.gd` script (which modifies materials upon import), note that you may need to uncheck the "Materials -> Keep on Reimport" checkbox in the Godot import settings in order for the new changes to take. Be sure to re-check this checbkox before you save, though.
 
 ## Credits
