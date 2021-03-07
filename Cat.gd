@@ -2,7 +2,7 @@ extends Spatial
 
 export(NodePath) var spawn_points
 export(float) var time_between_teleports
-var MOVE_SPEED = 0.1
+var MOVE_SPEED = 12
 var AT_FOOD_DISTANCE = 3
 var AT_FOOD_DISTANCE_SQUARED = AT_FOOD_DISTANCE * AT_FOOD_DISTANCE
 var anim_player
@@ -30,13 +30,13 @@ func set_food(new_food):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	if food:
 		var cat_pos = global_transform.origin
 		var food_pos = food.global_transform.origin
 		var distance_to_food = (cat_pos - food_pos).length_squared()
 		if distance_to_food > AT_FOOD_DISTANCE_SQUARED:
-			global_transform.origin = cat_pos.move_toward(food_pos, MOVE_SPEED)
+			global_transform.origin = cat_pos.move_toward(food_pos, MOVE_SPEED * delta)
 		else:
 			emit_signal("started_eating")
 			loop_animation("EatAction")
