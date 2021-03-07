@@ -21342,10 +21342,10 @@
         {
             "bufferView" : 1420,
             "componentType" : 5126,
-            "count" : 1507,
+            "count" : 1656,
             "max" : [
-                101.00877380371094,
-                537.1873168945312,
+                100.4562759399414,
+                537.6155395507812,
                 12.651124954223633
             ],
             "min" : [
@@ -21358,19 +21358,19 @@
         {
             "bufferView" : 1421,
             "componentType" : 5126,
-            "count" : 1507,
+            "count" : 1656,
             "type" : "VEC3"
         },
         {
             "bufferView" : 1422,
             "componentType" : 5126,
-            "count" : 1507,
+            "count" : 1656,
             "type" : "VEC2"
         },
         {
             "bufferView" : 1423,
             "componentType" : 5123,
-            "count" : 2898,
+            "count" : 3114,
             "type" : "SCALAR"
         }
     ],
@@ -28477,23 +28477,23 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 18084,
+            "byteLength" : 19872,
             "byteOffset" : 7718728
         },
         {
             "buffer" : 0,
-            "byteLength" : 18084,
-            "byteOffset" : 7736812
+            "byteLength" : 19872,
+            "byteOffset" : 7738600
         },
         {
             "buffer" : 0,
-            "byteLength" : 12056,
-            "byteOffset" : 7754896
+            "byteLength" : 13248,
+            "byteOffset" : 7758472
         },
         {
             "buffer" : 0,
-            "byteLength" : 5796,
-            "byteOffset" : 7766952
+            "byteLength" : 6228,
+            "byteOffset" : 7771720
         }
     ],
     "samplers" : [
@@ -28504,7 +28504,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 7772748,
+            "byteLength" : 7777948,
             "uri" : "cooper-hewitt-take-two.bin"
         }
     ]
