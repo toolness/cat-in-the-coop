@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/toybox.ogg-cd9f6239ae12c4903573a251ac31516c.oggstr"
+
+[deps]
+
+source_file="res://assets/toybox.ogg"
+dest_files=[ "res://.import/toybox.ogg-cd9f6239ae12c4903573a251ac31516c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

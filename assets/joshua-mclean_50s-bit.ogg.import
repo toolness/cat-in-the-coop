@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/joshua-mclean_50s-bit.ogg-8b68f3061326f1db4dac264a15b1c21a.oggstr"
+
+[deps]
+
+source_file="res://assets/joshua-mclean_50s-bit.ogg"
+dest_files=[ "res://.import/joshua-mclean_50s-bit.ogg-8b68f3061326f1db4dac264a15b1c21a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
