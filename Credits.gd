@@ -15,11 +15,13 @@ var LINES = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicPlayer.play(MusicPlayer.WIN_MUSIC)
 	for line in LINES:
 		yield(curtain.show_text(line), "completed")
-		yield(curtain.wait(3.0), "completed")
-		if ui_cancel_pressed:
-			break
+		if ui_cancel_pressed: break
+		yield(curtain.wait(2.0), "completed")
+		if ui_cancel_pressed: break
+	MusicPlayer.stop()
 	emit_signal("finished")
 
 

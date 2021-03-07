@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Cooper_Hewitt/gltf/cooper-hewitt-take-two.gltf" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/Cooper_Hewitt/LightFlicker.gd" type="Script" id=4]
 [ext_resource path="res://Cat_Objective.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Cooper_Hewitt/Cooper_Hewitt_Level.gd" type="Script" id=6]
-[ext_resource path="res://MusicPlayer.gd" type="Script" id=7]
 [ext_resource path="res://Curtain.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Lamp.tscn" type="PackedScene" id=11]
 [ext_resource path="res://midnight_black_spatialmaterial.tres" type="Material" id=12]
@@ -127,9 +126,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.3598 )
 transform = Transform( 0.648162, 0.57952, -0.494007, 0, 0.648727, 0.761021, 0.761502, -0.493265, 0.42048, -2.30414, 12.9864, 3.05106 )
 
 [node name="Curtain" parent="Objective_Manager" instance=ExtResource( 8 )]
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="Objective_Manager"]
-script = ExtResource( 7 )
 
 [node name="cooper-hewitt-take-two" parent="." instance=ExtResource( 2 )]
 

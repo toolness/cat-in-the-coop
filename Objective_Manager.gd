@@ -10,7 +10,6 @@ var player
 var objectives = []
 var current_objective_idx = -1
 onready var curtain = $Curtain
-onready var music = $MusicPlayer
 var cat_scene = preload("res://Cat.tscn")
 var catfood_scene = preload("res://Cat_Food.tscn")
 var photo: ImageTexture
@@ -67,7 +66,7 @@ func play_intro():
 	yield(curtain.show_text("Armed with your cat's favorte noms, you sneak in late at night to find it."), "completed")
 	curtain.hide()
 	player.unpause()
-	music.play_music(music.START_LEVEL_MUSIC)
+	MusicPlayer.play(MusicPlayer.START_LEVEL_MUSIC)
 
 
 func put_down_food():
@@ -92,7 +91,7 @@ func put_down_food():
 
 	if inside_objective:
 		player.play_sound("jump")
-		music.play_music(music.WIN_MUSIC)
+		MusicPlayer.play(MusicPlayer.WIN_MUSIC)
 		var pos = objectives[current_objective_idx].cat_spawn.global_transform.origin
 		var cat = cat_scene.instance()
 		cat.transform.origin = pos
@@ -103,7 +102,7 @@ func put_down_food():
 		yield(curtain.wait(2.5), "completed")
 
 		yield(curtain.show_text("You found your cat!"), "completed")
-		music.stop()
+		MusicPlayer.stop()
 		yield(curtain.show_text("But a week later, you lose it again."), "completed")
 		yield(goto_next_objective(), "completed")
 		yield(curtain.show_text("Again, someone spots it on social media!"), "completed")
@@ -112,7 +111,7 @@ func put_down_food():
 		hide_and_remove([catfood, cat])
 		player.reset()
 		curtain.hide()
-		music.play_music(music.START_LEVEL_MUSIC)
+		MusicPlayer.play(MusicPlayer.START_LEVEL_MUSIC)
 	else:
 		player.play_sound("zap")
 		yield(curtain.wait(2.0), "completed")

@@ -36,15 +36,26 @@ func _on_QuitGameButton_pressed():
 
 
 func _on_CreditsButton_pressed():
-	var _result = OS.shell_open("https://github.com/toolness/cat-in-the-coop#credits")
+	var credits = load("res://Credits.tscn").instance()
+	var root = get_tree().root
+	root.add_child(credits)
+	self.visible = false
+	yield(credits, "finished")
+	root.remove_child(credits)
+	make_visible_again()
+	# var _result = OS.shell_open("https://github.com/toolness/cat-in-the-coop#credits")
+
+
+func make_visible_again():
+	self.visible = true
+	activate_start_time = OS.get_ticks_msec()
 
 
 func activate(photo_texture: ImageTexture):
 	title.visible = false
 	objective_instructions.visible = true
 	photo.set_photo(photo_texture)
-	self.visible = true
-	activate_start_time = OS.get_ticks_msec()
+	make_visible_again()
 
 
 func _input(event):
