@@ -112,6 +112,7 @@ func put_down_food():
 		hide_and_remove([catfood, cat])
 		player.reset()
 		curtain.hide()
+		music.play_music(music.START_LEVEL_MUSIC)
 	else:
 		player.play_sound("zap")
 		yield(curtain.wait(2.0), "completed")
