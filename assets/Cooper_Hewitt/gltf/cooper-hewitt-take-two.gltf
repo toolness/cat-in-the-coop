@@ -21308,7 +21308,7 @@
         {
             "bufferView" : 1416,
             "componentType" : 5126,
-            "count" : 37,
+            "count" : 41,
             "max" : [
                 156.59368896484375,
                 0.33118802309036255,
@@ -21324,19 +21324,19 @@
         {
             "bufferView" : 1417,
             "componentType" : 5126,
-            "count" : 37,
+            "count" : 41,
             "type" : "VEC3"
         },
         {
             "bufferView" : 1418,
             "componentType" : 5126,
-            "count" : 37,
+            "count" : 41,
             "type" : "VEC2"
         },
         {
             "bufferView" : 1419,
             "componentType" : 5123,
-            "count" : 63,
+            "count" : 69,
             "type" : "SCALAR"
         },
         {
@@ -28457,43 +28457,43 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 444,
+            "byteLength" : 492,
             "byteOffset" : 7717276
         },
         {
             "buffer" : 0,
-            "byteLength" : 444,
-            "byteOffset" : 7717720
+            "byteLength" : 492,
+            "byteOffset" : 7717768
         },
         {
             "buffer" : 0,
-            "byteLength" : 296,
-            "byteOffset" : 7718164
+            "byteLength" : 328,
+            "byteOffset" : 7718260
         },
         {
             "buffer" : 0,
-            "byteLength" : 126,
-            "byteOffset" : 7718460
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 18084,
+            "byteLength" : 138,
             "byteOffset" : 7718588
         },
         {
             "buffer" : 0,
             "byteLength" : 18084,
-            "byteOffset" : 7736672
+            "byteOffset" : 7718728
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18084,
+            "byteOffset" : 7736812
         },
         {
             "buffer" : 0,
             "byteLength" : 12056,
-            "byteOffset" : 7754756
+            "byteOffset" : 7754896
         },
         {
             "buffer" : 0,
             "byteLength" : 5796,
-            "byteOffset" : 7766812
+            "byteOffset" : 7766952
         }
     ],
     "samplers" : [
@@ -28504,7 +28504,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 7772608,
+            "byteLength" : 7772748,
             "uri" : "cooper-hewitt-take-two.bin"
         }
     ]
