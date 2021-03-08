@@ -2,5 +2,7 @@
 .vscode
 *.blend1
 dist
+dist-windows
 node_modules
 logs
+cat-in-the-coop-osx.zip
