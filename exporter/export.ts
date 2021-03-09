@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as child_process from "child_process";
+import { syncVersion } from "./sync-version";
 
 // TODO: support publishing to itch via e.g.:
 //   butler push dist toolness/cat-in-the-coop:html --userversion 0.0.1
@@ -56,5 +57,6 @@ const html5: Exporter = {
 };
 
 if (!module.parent) {
+  syncVersion();
   html5.exportSync();
 }
