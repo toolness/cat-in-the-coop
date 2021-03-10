@@ -141,6 +141,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Version" type="Label" parent="Title"]
+margin_left = 713.0
+margin_top = 597.0
+margin_right = 855.0
+margin_bottom = 641.0
+align = 2
+valign = 2
+
 [node name="FullscreenCheckbox" type="CheckBox" parent="."]
 margin_left = 21.0
 margin_top = 435.0

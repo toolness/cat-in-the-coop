@@ -9,6 +9,7 @@ onready var title = $Title
 onready var quit_button = $QuitGameButton
 onready var mouse_slider = $MouseSlider
 onready var music_checkbox = $MusicCheckbox
+onready var version = $Title/Version
 var activate_start_time = 0
 signal continue_game
 
@@ -16,6 +17,7 @@ signal continue_game
 func _ready():
 	mouse_slider.value = PlayerConfig.mouse_sensitivity
 	music_checkbox.pressed = PlayerConfig.music_enabled
+	version.text = "v" + Version.VERSION
 	if OS.get_name() == "HTML5":
 		quit_button.visible = false
 
