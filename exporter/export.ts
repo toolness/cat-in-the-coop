@@ -2,17 +2,12 @@ import * as fs from "fs";
 import * as path from "path";
 import * as child_process from "child_process";
 import { syncVersion } from "./sync-version";
+import { GODOT_PATH, ROOT_DIR } from "./paths";
 
 // TODO: support publishing to itch via e.g.:
 //   butler push dist toolness/cat-in-the-coop:html --userversion 0.0.1
 //   butler push cat-in-the-coop-osx.zip toolness/cat-in-the-coop:osx-beta --userversion 0.0.1
 //   butler push dist-windows toolness/cat-in-the-coop:windows-beta --userversion 0.0.1
-
-const ROOT_DIR = path.normalize(path.join(__dirname, '..'));
-
-const GODOT_PATH = "godot";
-
-const BUTLER_PATH = "butler";
 
 function runSync(path: string, args: string[]) {
   const result = child_process.spawnSync(
