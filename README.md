@@ -1,6 +1,6 @@
 **Cat in the Coop** is a game about finding your lost cat in the Cooper Hewitt Smithsonian Design Museum.
 
-[It can be played on the web.](https://toolness.github.io/cat-in-the-coop/)
+[It can be played via itch.io.](https://toolness.itch.io/cat-in-the-coop)
 
 ## History
 
@@ -16,9 +16,17 @@ The deployment scripts were created with Node v14, though it's likely that other
 
 After cloning this repository, and after updating it, run `npm install`.
 
-To deploy the game to GitHub pages, run `npm run deploy`.
+To change the version of the game, edit `version.txt` and run `node export.js syncversion`.
+
+To build the game, run `node export.js build all`.  You will need the `godot` executable on your `PATH`.
+
+To publish the game to itch.io, run `node export.js publish all`.  You will need itch.io's [butler][] tool on your `PATH`.
+
+For additional documentation on the `export.js` tool, run `node export.js --help`.
 
 If you change materials in Blender, or the `import_cooper_hewitt.gd` script (which modifies materials upon import), note that you may need to uncheck the "Materials -> Keep on Reimport" checkbox in the Godot import settings in order for the new changes to take. Be sure to re-check this checbkox before you save, though.
+
+[butler]: https://itch.io/docs/butler/
 
 ## Credits
 
