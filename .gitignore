@@ -3,6 +3,6 @@
 *.blend1
 dist
 dist-windows
+dist-osx
 node_modules
 logs
-cat-in-the-coop-osx.zip

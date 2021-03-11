@@ -62,8 +62,20 @@ const windows: Exporter = {
   }
 };
 
+const osx: Exporter = {
+  name: "osx",
+  itchChannel: "osx-beta",
+  targetPath: path.join('dist-osx', 'cat-in-the-coop-osx.zip'),
+
+  exportSync() {
+    ensureDirIsEmptySync(path.dirname(this.targetPath));
+    runSync(GODOT_PATH, ["--export", "Mac OSX", this.targetPath]);
+  }
+};
+
 if (!module.parent) {
   syncVersion();
+  osx.exportSync();
   windows.exportSync();
   html5.exportSync();
 }
