@@ -51,7 +51,19 @@ const html5: Exporter = {
   }
 };
 
+const windows: Exporter = {
+  name: "windows",
+  itchChannel: "windows-beta",
+  targetPath: "dist-windows",
+
+  exportSync() {
+    ensureDirIsEmptySync(this.targetPath);
+    runSync(GODOT_PATH, ["--export", "Windows Desktop", path.join(this.targetPath, 'cat-in-the-coop.exe')]);
+  }
+};
+
 if (!module.parent) {
   syncVersion();
+  windows.exportSync();
   html5.exportSync();
 }
