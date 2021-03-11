@@ -38,6 +38,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Version="*res://version.gd"
 PlayerConfig="*res://PlayerConfig.gd"
 MusicPlayer="*res://MusicPlayer.gd"
 
