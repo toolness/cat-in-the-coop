@@ -50,7 +50,7 @@ func _on_CreditsButton_pressed():
 
 
 func _on_WebsiteButton_pressed():
-	var _result = OS.shell_open("https://github.com/toolness/cat-in-the-coop")
+	var _result = OS.shell_open("https://toolness.itch.io/cat-in-the-coop")
 
 
 func make_visible_again():
