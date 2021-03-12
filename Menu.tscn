@@ -149,22 +149,22 @@ margin_bottom = 641.0
 align = 2
 valign = 2
 
-[node name="FullscreenCheckbox" type="CheckBox" parent="."]
-margin_left = 21.0
-margin_top = 435.0
-margin_right = 165.0
-margin_bottom = 459.0
-text = "Enable fullscreen"
+[node name="FullscreenCheckbox" type="CheckButton" parent="."]
+margin_left = 23.0
+margin_top = 430.0
+margin_right = 169.0
+margin_bottom = 470.0
+text = "Fullscreen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MusicCheckbox" type="CheckBox" parent="."]
-margin_left = 166.0
-margin_top = 435.0
-margin_right = 279.0
-margin_bottom = 459.0
-text = "Enable music"
+[node name="MusicCheckbox" type="CheckButton" parent="."]
+margin_left = 173.0
+margin_top = 430.0
+margin_right = 308.0
+margin_bottom = 470.0
+text = "Music"
 __meta__ = {
 "_edit_use_anchors_": false
 }
