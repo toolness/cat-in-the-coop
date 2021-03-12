@@ -11,5 +11,5 @@ dest_files=[ "res://.import/joshua-mclean_50s-bit.ogg-8b68f3061326f1db4dac264a15
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
